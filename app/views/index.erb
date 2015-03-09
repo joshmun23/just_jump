@@ -1,0 +1,25 @@
+    <div class="top-title">
+      <h2>Grocery List</h2>
+    </div>
+
+    <div class="main-body">
+      <ol>
+        <ul>
+          <% @grocery_list.each do |grocery| %>
+            <li><%= grocery["item"] %></li>
+          <% end %>
+        </ul>
+      </ol>
+
+      <div class="grocery-form" %>
+        <form action="/grocery_list" method="POST">
+          <input type="text" id="grocery_item" name="grocery_item" placeholder="Add New Grocery Item">
+        </br>
+          <input type="submit" id="submit_item" class="submit_item">
+        </form>
+      </div>
+
+    </div>
+
+    <script src="/javascripts/vendor/jquery-1.11.1.min.js"></script>
+    <script src="/javascripts/alert.js"></script>

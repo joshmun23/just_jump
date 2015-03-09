@@ -1,0 +1,98 @@
+<div class="top-title">
+  <h1>Let's Meat<h1>
+</div>
+
+<div class="main-body">
+
+	<form action="/feedback/new" method="post">
+		<input type="text" name="item" id="form_input" class="item" placeholder="Insert Item Name">
+		<br>
+		<input type="text" name="restaurant" id="form_input" class="restaurant" placeholder="Restaurant">
+		<br>
+		<input type="text" name="item_rating" id="form_input" class="item_rating" placeholder="Best I ever had">
+		<br>
+		<input type="text" name="social_rating" id="form_input" class="social_rating" placeholder="Perfect Date Night">
+		<br>
+		<input type="text" name="price" id="form_input" class="price" placeholder="$5.00">
+		<br>
+
+		<br><br><br>
+
+		<span class="star-rating">
+		  <input type="radio" name="rating" value="1"><i></i>
+		  <input type="radio" name="rating" value="2"><i></i>
+		  <input type="radio" name="rating" value="3"><i></i>
+		  <input type="radio" name="rating" value="4"><i></i>
+		  <input type="radio" name="rating" value="5"><i></i>
+		</span>
+		<br><br><br>
+		<strong class="choice">Choose a rating</strong>
+		<br><br><br>
+
+		<input type="submit" id="submit_item">
+	</form>
+
+	<br><br><br><br><br><br>
+	<table>
+		<thead>
+			<th>Restaurant</th>
+			<th>Rating</th>
+			<th>Phone No.</th>
+			<th>Category</th>
+			<th>Open?</th>
+			<th>Location</th>
+		</thead>
+		<% @data[2][1].each do |restaurant| %>
+			<tr>
+				<td><%= restaurant['name'] %></td>
+				<td><%= restaurant['rating'] %></td>
+				<td><%= restaurant['phone'] %></td>
+				<td><%= restaurant['categories'][0][0] %></td>
+				<td>
+					<% if restaurant['is_closed'] %>
+						<strong>Open</strong>
+					<% else %>
+						<strong>Closed</strong>
+					<% end %>
+				</td>
+				<td><%= restaurant['location']['display_address'][0] %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+
+
+<!-- # data[2][1][0]["rating"]
+# => 4.0
+# data[2][1][0]["name"]
+# => "Giacomo's Ristorante"
+# data[2][1][0]["phone"]
+# => "6175239026"
+# data[2][1][0]["categories"]
+# => [["Italian", "italian"]] # should return more array values *troubleshoot*
+# data[2][1][0]['id']
+# => "giacomos-ristorante-boston"
+# data[2][1][0]['is_closed']
+# => false
+# data[2][1][0]['location']
+# => {"cross_streets"=>"Tileston St & Clark St",
+#  "city"=>"Boston",
+#  "display_address"=>
+#   ["355 Hanover St", "North End", "Boston, MA 02113"],
+#  "geo_accuracy"=>8.0,
+#  "neighborhoods"=>["North End"],
+#  "postal_code"=>"02113",
+#  "country_code"=>"US",
+#  "address"=>["355 Hanover St"],
+#  "coordinate"=>
+#   {"latitude"=>42.3645782, "longitude"=>-71.0534363},
+#  "state_code"=>"MA"}
+
+#  data[2][1].each do |restaurant|
+	 # puts restaurant['name']
+	 
+#  end
+ -->
+<script src="/javascripts/vendor/jquery-1.11.1.min.js"></script>
+<script src="/javascripts/rating.js"></script>
+
