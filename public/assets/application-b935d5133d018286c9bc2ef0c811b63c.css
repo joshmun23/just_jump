@@ -1,5 +1,6 @@
 /* navbar */
 
+
 .navbar-container {
   margin-top: .5em;
   border-bottom: solid;
@@ -210,4 +211,142 @@ body {
     vertical-align: middle;
     display:inline-block;
   }
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+.navbar-container {
+  margin-top: .5em;
+  border-bottom: solid;
+  margin-left: 5em;
+  margin-right: 5em;
+
+}
+
+.search-form {
+  list-style: none;
+}
+
+.nav-links-right {
+  margin-right: 5em;
+  margin-left: 60em;
+}
+
+.nav-link {
+  padding-left: 3em;
+  display: inline-block;
+  list-style: none;
+}
+
+.first-link {
+  text-decoration: none;
+  color: #801515;
+}
+
+.second-link {
+  text-decoration: none;
+  color: #801515;
+}
+
+.login-link {
+  text-decoration: none;
+  color: #801515;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline;
+  font-size: 115%;
+}
+
+body {
+  background-color: #FCECDF;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  color: #801515
+}
+
+/* title */
+
+.top-title {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 3.5em;
+}
+
+.top-title h2 {
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  color: #801515;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+/*body*/
+
+.main-body ol {
+  margin-left: 42%;
+  margin-right: 42%;
+  border-style: groove;
+  border-width: 3px;
+  border-color: #D46A6A;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.main-body li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  list-style: none;
+  text-align: left;
+  color: #AA3939;
+}
+
+/*form fields*/
+
+#form_input {
+  border-color: #AA3939;
+  border-width: .25em;
+  margin-top: .5em;
+  margin-bottom: .25em;
+}
+
+#submit_item {
+  border-color: #AA3939;
+  border-width: .35em;
+  background-color: white;
+  font-weight: bold;
+}
+
+#form_input:focus {
+  font-size: 125%;
+}
+
+#submit_item:hover {
+  font-size: 125%;
+}
+
+table {
+  margin-left: 33%;
+  margin-right: 33%;
 }
