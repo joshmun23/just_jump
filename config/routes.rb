@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :photos, :menu_items
+
+  get 'photos/upload'
+
+  get 'photos/index'
+
   get 'users/login'
 
   get 'home/index'
