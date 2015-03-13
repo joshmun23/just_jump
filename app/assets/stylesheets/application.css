@@ -131,7 +131,16 @@ body {
   font-size: 125%;
 }
 
+/*display search fields*/
+/*display search fields*/
+/*display search fields*/
+display: inline-block;
+  .search-results li {
+  list-style: none;
+}
+
 table {
   margin-left: 33%;
   margin-right: 33%;
 }
+

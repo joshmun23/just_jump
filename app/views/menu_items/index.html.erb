@@ -1,1 +1,20 @@
 <h1>Menu Items</h1>
+
+<ul class="search-results">
+  <%= @data[2][1].each do |data| %>
+
+    <li><%= data['name'] %></li>
+    <li><%= data['phone'] %></li>
+    <li><%= data['location'] %></li>
+    <li>
+      <% data['categories'].each_with_index  do |category, index| %>
+        <%= category.first %>
+        <%= "|" unless index == data['categories'].count - 1 %>
+      <% end %>
+    </li>
+    <li><%= data['is_closed'] %></li>
+    <li><%= data['location'] %></li>
+    <li><%= data['rating'] %></li>
+
+  <% end %>
+</ul>

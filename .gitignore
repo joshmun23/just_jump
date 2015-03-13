@@ -14,3 +14,4 @@
 
 /config/database.yml
 /config/secret_token.rb
+./app/controllers/application_controller.rb
