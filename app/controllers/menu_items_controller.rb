@@ -1,8 +1,9 @@
 class MenuItemsController < ApplicationController
   before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
+  before_action :show, only: [:index]
   def index
     #access database || API to show all menu items from a restaurant with :id
-    @data = get_yelp_data
+
 
     @menu_items = MenuItem.all
   end
@@ -12,16 +13,14 @@ class MenuItemsController < ApplicationController
     @menu_item = MenuItem.new
   end
 
+
   def create
     #store a new item to database with a restaurant :id
-    name = params['menu_item']['name']
-    price = params['menu_item']['price']
-    binding.pry
     @menu_item = MenuItem.new(menu_item_params)
   end
 
   def show
-    #pull an item from the database matching the name of user search term
+
   end
 
   def update
@@ -40,6 +39,6 @@ class MenuItemsController < ApplicationController
   end
 
   def menu_item_params
-    params.require(:menu_item).permit(:name, :price)
+    params.require(:menu_item).permit(:name)
   end
 end

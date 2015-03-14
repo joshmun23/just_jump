@@ -1,4 +1,5 @@
-<%= form_for(@menu_item) do |m| %>
+<%= form_tag(controller:'menu_items', action: 'index',
+  method: 'post') %>
   <% #insert error checking here %>
 
   <%= m.label :name %>
@@ -10,3 +11,10 @@
   <%= m.submit %>
 <% end %>
 
+<%= form_for(@menu_item) do |f| %>
+  <%= f.label :find_your_food %>
+  <%= f.search_field :name %>
+
+  <%= f.submit %>
+
+<% end %>

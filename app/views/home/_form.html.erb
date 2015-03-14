@@ -1,0 +1,7 @@
+
+<%= form_tag(searches_path, method: "get") do %>
+  <%= label_tag :menu_item, "Find Your Food" %>
+  <%= search_field_tag :menu_item %>
+  <%= submit_tag "Search" %>
+<% end %>
+

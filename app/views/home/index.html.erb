@@ -2,21 +2,27 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 
-<ul>
-  <%= @data[2][1].each do |data| %>
+<%= render 'form' %>
 
-    <li><%= data['name'] %></li>
-    <li><%= data['phone'] %></li>
-    <li><%= data['location'] %></li>
-    <li>
-      <% data['categories'].each_with_index  do |category, index| %>
-        <%= category.first %>
-        <%= "|" unless index == data['categories'].count - 1 %>
-      <% end %>
-    </li>
-    <li><%= data['is_closed'] %></li>
-    <li><%= data['location'] %></li>
-    <li><%= data['rating'] %></li>
 
+
+<ul class="list-all-results">
+  <% if params.count > 2 %>
+    <%= @search_results[2][1].each do |result| %>
+
+      <li><%= result['name'] %></li>
+      <li><%= result['phone'] %></li>
+      <li><%= result['location'] %></li>
+      <li>
+        <% result['categories'].each_with_index  do |category, index| %>
+          <%= category.first %>
+          <%= "|" unless index == result['categories'].count - 1 %>
+        <% end %>
+      </li>
+      <li><%= result['is_closed'] %></li>
+      <li><%= result['location'] %></li>
+      <li><%= result['rating'] %></li>
+
+    <% end %>
   <% end %>
 </ul>

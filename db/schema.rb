@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312232631) do
+ActiveRecord::Schema.define(version: 20150313155516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 20150312232631) do
     t.integer  "width"
     t.integer  "height"
     t.string   "optimal_size"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "name"
+    t.string   "phone"
+    t.boolean  "is_closed"
+    t.string   "url"
+    t.string   "mobile_url"
+    t.string   "snippet_text"
+    t.string   "street_number"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
   end
 
 end

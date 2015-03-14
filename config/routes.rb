@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :photos, :menu_items
+  get 'searches', to: "home#index"
+
+  resources :photos, :menu_items, :searches
 
   get 'photos/upload'
 
