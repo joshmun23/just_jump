@@ -4,12 +4,13 @@ class HomeController < ApplicationController
 
   def index
     #Still need to search dynamically
-    if params.count > 2
-      if !params['menu_item'].empty?
-        search_term = params['menu_item']
-        @search_results = get_yelp_data(search_term)
-      end
-    end
+    binding.pry
+        if params.count > 2
+          if !params['menu_item'].empty?
+            search_term = params['menu_item']
+            @search_results = get_yelp_data(search_term)
+          end
+        end
     # @menu_items = MenuItem.all
   end
 
