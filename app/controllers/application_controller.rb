@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   require 'yelp'
-
+  require 'dotenv'
   ##########################
   ########   APIS   ########
   ##########################
@@ -15,12 +15,6 @@ class ApplicationController < ActionController::Base
                             token: ENV['TOKEN'],
                             token_secret: ENV['TOKEN_SECRET']
                           })
-
-    # client = Yelp::Client.new({ consumer_key: 't1_nA-JKOW8bMfUPU4E2Og',
-    #                             consumer_secret: 'qA5n9hJeIlxhrTg9tqbmrhpJbUA',
-    #                             token: 'Jke9KKd71wZlv_83qKEmLGThRc2plbRP',
-    #                             token_secret: 'EF5RODrw6Hgvn9v0dEnpAm97z7k'
-    #                           })
   end
 
   def get_yelp_data(name)

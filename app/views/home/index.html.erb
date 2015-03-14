@@ -8,7 +8,7 @@
 
 <ul class="list-all-results">
   <% if params.count > 2 %>
-    <%= @search_results[2][1].each do |result| %>
+    <% @search_results[2][1].each do |result| %>
 
       <li><%= result['name'] %></li>
       <li><%= result['phone'] %></li>
@@ -22,7 +22,6 @@
       <li><%= result['is_closed'] %></li>
       <li><%= result['location'] %></li>
       <li><%= result['rating'] %></li>
-
     <% end %>
   <% end %>
 </ul>
