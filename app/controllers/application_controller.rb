@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   require 'yelp'
   require 'dotenv'
+
   ##########################
   ########   APIS   ########
   ##########################
