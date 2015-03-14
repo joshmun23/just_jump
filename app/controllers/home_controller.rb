@@ -4,7 +4,6 @@ class HomeController < ApplicationController
 
   def index
     #Still need to search dynamically
-    binding.pry
         if params.count > 2
           if !params['menu_item'].empty?
             search_term = params['menu_item']
