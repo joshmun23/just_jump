@@ -32,7 +32,6 @@ class PhotosController < ApplicationController
           redirect_to(
             @photo,
             notice: "We recommend cropping to: ")
-          )
         end
         # format.json { render :show, status: :created, location: @photo}
       else
