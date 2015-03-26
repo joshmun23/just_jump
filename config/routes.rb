@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'searches', to: "home#index"
 
-  resources :photos, :menu_items, :searches
+  resources :photos, :menu_items, :searches, :restaurants
 
   get 'photos/upload'
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'spots#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

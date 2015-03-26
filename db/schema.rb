@@ -11,16 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313155516) do
+ActiveRecord::Schema.define(version: 20150321214833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "city",          null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "state_code_id", null: false
+  end
+
+  create_table "country_codes", force: :cascade do |t|
+    t.string   "country_code", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "food_categories", force: :cascade do |t|
+    t.string   "category",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "menu_items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name",       null: false
     t.decimal  "price"
+  end
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string   "neighborhood", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "photos", force: :cascade do |t|
@@ -32,9 +57,26 @@ ActiveRecord::Schema.define(version: 20150313155516) do
     t.string   "optimal_size"
   end
 
-  create_table "restaurants", force: :cascade do |t|
+  create_table "postal_codes", force: :cascade do |t|
+    t.string   "postal_code",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "city_id",         null: false
+    t.integer  "neighborhood_id", null: false
+  end
+
+  create_table "restaurant_menu_items", force: :cascade do |t|
+    t.integer  "menu_item_id",  null: false
+    t.integer  "restaurant_id", null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  add_index "restaurant_menu_items", ["menu_item_id", "restaurant_id"], name: "index_restaurant_menu_items_on_menu_item_id_and_restaurant_id", unique: true, using: :btree
+
+  create_table "restaurants", force: :cascade do |t|
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "name"
     t.string   "phone"
     t.boolean  "is_closed"
@@ -44,6 +86,23 @@ ActiveRecord::Schema.define(version: 20150313155516) do
     t.string   "street_number"
     t.decimal  "latitude"
     t.decimal  "longitude"
+    t.string   "locality"
+    t.integer  "street_name_id", null: false
+    t.integer  "postal_code_id", null: false
+  end
+
+  create_table "state_codes", force: :cascade do |t|
+    t.string   "state_code",      null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "country_code_id", null: false
+  end
+
+  create_table "street_names", force: :cascade do |t|
+    t.string   "street_name",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "postal_code_id", null: false
   end
 
 end

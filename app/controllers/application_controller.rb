@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   require 'yelp'
+  require 'net/http'
+  require 'JSON'
 
   ##########################
   ########   APIS   ########
@@ -26,5 +28,64 @@ class ApplicationController < ActionController::Base
     data = yelp_client.search("Boston", { term: "#{name}", sort: 2, deals_filter: true }).to_json
     # limit: 5, sort: 2, radius_filter: 25, deals_filter: false
     data = JSON.parse(data).to_a
+  end
+
+  def get_yelp_restaurant(restaurant)
+
+  end
+
+  def locu_id(search_term="chicken parm", location="Boston")
+    #https://dev.locu.com/documentation/
+    api_key = ENV['LOCU_KEY']
+    # "fields": [ "name", "menus", "delivery" ],
+
+    request =
+      %{{
+    "api_key": "#{api_key}",
+    "venue_queries": [
+      {
+        "location": {
+          "locality": "#{location}"
+        }
+      }
+    ],
+    "menu_item_queries": [
+      {
+        "name": "#{search_term}"
+      }
+    ]
+    }}
+
+    conn = Faraday.new(:url => 'https://api.locu.com') do |faraday|
+      faraday.request :url_encoded
+      faraday.response :logger
+      faraday.adapter Faraday.default_adapter
+    end
+
+    data = conn.post '/v2/venue/search', request
+
+    a = JSON.parse(data.to_json)
+    b = JSON.parse(a['body'])
+
+
+    # >>Restaurant Data
+    # name = b[0]['venues'].name
+    # phone = (Need yelp phone)
+    # is_closed = (need yelp)
+    # url = yelp
+    # mobile_url = yelp
+    # snippet_text = yelp
+    # street_number = locu||yelp
+    # latitude, longitude = locu||yelp
+    # >>
+
+    # >>Menu Item
+    # name = b[0]['venues']['menu_items'][0]['name'] (each)
+    # price = b[0]['venues']['menu_items'][0]['price'] (each)
+    # >>
+
+
+
+    b['venues']
   end
 end
