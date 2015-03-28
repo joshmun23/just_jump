@@ -1,21 +1,21 @@
 Rails.application.routes.draw do
-  get 'searches', to: "home#index"
+  root 'spots#index'
 
-  resources :photos, :menu_items, :searches, :restaurants
+  resources :menu_items, :searches, :restaurants
 
-  get 'photos/upload'
+  resources :menu_item_restaurants, only: [:index]
 
-  get 'photos/index'
+  resources :spots, only: [:index]
+  # get 'photos/upload'
 
-  get 'users/login'
+  # get 'photos/index'
 
-  get 'home/index'
+  # get 'users/login'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'spots#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

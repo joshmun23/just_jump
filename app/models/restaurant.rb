@@ -7,7 +7,4 @@ class Restaurant < ActiveRecord::Base
 
   belongs_to :postal_code
 
-  def save_restaurant(info)
-
-  end
 end

@@ -1,7 +1,9 @@
-
-<%= form_tag(searches_path, method: "get") do %>
+<%= form_tag(spots_path, method: "get") do %>
   <%= label_tag :menu_item, "Find Your Food" %>
   <%= search_field_tag :menu_item %>
+
+  <%= label_tag :location %>
+  <%= search_field_tag :location %>
+
   <%= submit_tag "Search" %>
 <% end %>
-

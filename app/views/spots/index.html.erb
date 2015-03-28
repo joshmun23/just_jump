@@ -4,24 +4,10 @@
 
 <%= render 'form' %>
 
-
-
-<ul class="list-all-results">
-  <% if params.count > 2 %>
-    <% @search_results[2][1].each do |result| %>
-
-      <li><%= result['name'] %></li>
-      <li><%= result['phone'] %></li>
-      <li><%= result['location'] %></li>
-      <li>
-        <% result['categories'].each_with_index  do |category, index| %>
-          <%= category.first %>
-          <%= "|" unless index == result['categories'].count - 1 %>
-        <% end %>
-      </li>
-      <li><%= result['is_closed'] %></li>
-      <li><%= result['location'] %></li>
-      <li><%= result['rating'] %></li>
+<ul>
+  <% if @menu_items %>
+    <% @menu_items.each do |menu_item| %>
+      <li><%= menu_item %></li>
     <% end %>
   <% end %>
 </ul>
