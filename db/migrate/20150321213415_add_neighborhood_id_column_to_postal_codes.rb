@@ -4,6 +4,6 @@ class AddNeighborhoodIdColumnToPostalCodes < ActiveRecord::Migration
   end
 
   def down
-    remove_column :postal_cods, :neighborhood_id
+    remove_column :postal_codes, :neighborhood_id
   end
 end
