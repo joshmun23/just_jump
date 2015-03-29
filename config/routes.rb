@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :menu_item_restaurants, only: [:index]
 
-  resources :spots, only: [:index]
+  resources :spots, only: [:index, :show]
   # get 'photos/upload'
 
   # get 'photos/index'

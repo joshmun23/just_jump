@@ -1,17 +1,10 @@
 class SpotsController < ApplicationController
-  # before_action :set_menu_item, only: [:index]
-  # before_action :show, only: [:index]
-  before_action :new, only: [:index]
-
   def index
-    if params[:menu_item] && params[:location]
+    # if params[:menu_item] && params[:location]
       @search = { term: params[:menu_item],
                 location: params[:location] }
       @menu_items = FetchSpots.new(@search[:term], @search[:location]).fetch_all_data
-      binding.pry
-      redirect_to spots_path
-    end
-
+    # end
     # if in DB
     #check is menu items exist in database already within location
     # @menu_items = Menu_item.where(name: @search[:menu_item])
@@ -21,23 +14,9 @@ class SpotsController < ApplicationController
   end
 
   def new
-    @restaurant_item = {}
-
-    @menu_item = MenuItem.new
-    @restaurant = Restaurant.new
-    @postal_code = PostalCode.new
-    @neighborhood = Neighborhood.new
-    @city = City.new
-    @state_code = StateCode.new
-    @street_name = StreetName.new
-    @country_code = CountryCode.new
-
     #curl commands? within ruby code
     # cmd = "as;dfkjsadl;kfa"
     # `#{}cmd`
-  end
-
-  def show
   end
 
   private

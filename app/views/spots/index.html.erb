@@ -7,7 +7,9 @@
 <ul>
   <% if @menu_items %>
     <% @menu_items.each do |menu_item| %>
-      <li><%= menu_item %></li>
+      <li><span class="menu_item"><%= menu_item.menu_item %></span>
+        <span class="item_price"><%= menu_item.price %></span>
+      </li>
     <% end %>
   <% end %>
 </ul>
