@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
-  before :new, only: [:index]
+  # before_action :new, only: [:index]
+
   def index
     search_term = params["menu_item"]
     # @search_results = get_yelp_data(search_term)
