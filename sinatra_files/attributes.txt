@@ -1,0 +1,49 @@
+.main-heading {
+}
+
+.navbar-container {
+  margin-top: .5em;
+  border-bottom: solid;
+  margin-left: 5em;
+  margin-right: 5em;
+}
+
+.search-form {
+  list-style: none;
+}
+
+.search-label {
+  display: inline-block;
+}
+
+.nav-links-right {
+  margin-right: 5em;
+}
+
+.nav-link {
+  padding-left: 3em;
+  display: inline-block;
+  list-style: none;
+}
+
+.first-link {
+  text-decoration: none;
+  color: #801515;
+}
+
+.second-link {
+  text-decoration: none;
+  color: #801515;
+}
+
+.login-link {
+  text-decoration: none;
+  color: #801515;
+}
+
+.nav-link:hover {
+  color: black;
+  text-decoration: underline;
+  font-size: 115%;
+  background-color: black;
+}

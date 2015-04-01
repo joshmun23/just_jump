@@ -22,7 +22,7 @@ class BuildMenuItem
           @menu_item = MenuItem.where(menu_item: menu_item['name'], restaurant_id: current_restaurant_id).first
         end
 
-        results << @menu_item
+        results << [@menu_item, @restaurant_data[index]]
 
         @menu_item = MenuItem.new
       end

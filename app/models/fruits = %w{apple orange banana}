@@ -1,9 +1,0 @@
-fruits = %w{apple orange banana}
-answer = case fruits
-  when 'apple'
-    "this is apple"
-  when 'orange'
-    "this is orange"
-  when 'banana'
-    "this is banana"
-  end

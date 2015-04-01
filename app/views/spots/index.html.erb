@@ -1,14 +1,11 @@
-
-<h1>Spots#index</h1>
-<p>Find me in app/views/spots/index.html.erb</p>
-
-<%= render 'form' %>
-
 <ul>
-  <% if @menu_items %>
-    <% @menu_items.each do |menu_item| %>
-      <li><span class="menu_item"><%= menu_item.menu_item %></span>
-        <span class="item_price"><%= menu_item.price %></span>
+  <% if @all_data %>
+    <% @all_data.each do |data| %>
+      <li>
+        <span class="menu_item"><%= data[1].name %></span>
+        <span class="menu_item"><%= data[2] %></span>
+        <span class="menu_item"><%= data[0].menu_item %></span>
+        <span class="item_price"><%= data[0].price %></span>
       </li>
     <% end %>
   <% end %>

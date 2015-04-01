@@ -1,53 +1,68 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>LetsMeat</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-</head>
-<body>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-  <div class="navbar-container">
-    <ul class="nav-links-right">
-      <li class="nav-link">
-        <a href="/" class="first-link" ><h4>Home</h4></a>
-      </li>
-<!--       <li class="nav-link">
-        <a href="/auth/github" class="second-link" ><h4>Sign in with Github</h4></a>
-      </li> -->
-        <li class="nav-link">
-          <a href="https://www.facebook.com/dialog/oauth?
-    client_id=1560786344203181
-   &redirect_uri= https://www.facebook.com/connect/login_success.html" class="fb-link" ><h4>Login with Facebook!</h4></a>
-        </li>
-      <li class="nav-link">
-        <a href="/users/login" class="login-link" ><h4>Login</h4></a>
-      </li>
-    </ul>
-  </div>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
-  <%= yield %>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  </head>
 
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '1560786344203181',
-        xfbml      : true,
-        version    : 'v2.2'
-      });
-    };
+  <body>
+    <div class="sticky">
+      <nav class="top-bar">
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
+            <li class="active"><%= link_to "Home", spots_path %></li>
+            <li class="has-dropdown">
+              <a href="#">Right Button Dropdown</a>
+              <ul class="dropdown">
+                <li><a href="#">First link in dropdown</a></li>
+                <li class="active"><a href="#">Active link in dropdown</a></li>
+              </ul>
+            </li>
+          </ul>
 
-</body>
+          <!-- Left Nav Section -->
+          <ul class="left">
+            <li class="name">
+              <h1><%= link_to "Let's Eat", spots_path %></h1>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div class="main-heading">
+      <h1>Let's Eat</h1>
+    </div>
+    <div class="search-form-area">
+      <ul class="search-form">
+        <%= form_tag(spots_path, method: "get") do %>
+          <li class="search-label">
+            <%= label_tag :menu_item %>
+            <%= search_field_tag :menu_item, nil, placeholder: "Find Your Food" %>
+          </li>
+          <li class="search-label">
+            <%= label_tag :location %>
+            <%= search_field_tag :location, nil, placeholder: "Enter City" %>
+          </li>
+          <li class="search-submit">
+            <%= submit_tag "Find Your Food" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%= yield %>
+
+  </body>
 </html>
