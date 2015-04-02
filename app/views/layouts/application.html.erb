@@ -41,28 +41,29 @@
       </nav>
     </div>
 
-    <div class="main-heading">
-      <h1>Let's Eat</h1>
-    </div>
-    <div class="search-form-area">
-      <ul class="search-form">
-        <%= form_tag(spots_path, method: "get") do %>
-          <li class="search-label">
-            <%= label_tag :menu_item %>
-            <%= search_field_tag :menu_item, nil, placeholder: "Find Your Food" %>
-          </li>
-          <li class="search-label">
-            <%= label_tag :location %>
-            <%= search_field_tag :location, nil, placeholder: "Enter City" %>
-          </li>
-          <li class="search-submit">
-            <%= submit_tag "Find Your Food" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+    <div class="main body">
+      <div class="main-heading">
+        <h1>Let's Eat</h1>
+      </div>
+      <div class="search-form-area">
+        <ul class="search-form">
+          <%= form_tag(spots_path, method: "get") do %>
+            <li class="search-label">
+              <%= search_field_tag :menu_item, nil, placeholder: "What do you want today?" %>
+            </li>
+            <li class="search-label">
+              <%= search_field_tag :location, nil, placeholder: "Where are you?" %>
+            </li>
+            <li class="search-submit">
+              <%= submit_tag "Feed Your Need" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
-    <%= yield %>
+      <%= yield %>
+
+  </div>
 
   </body>
 </html>
