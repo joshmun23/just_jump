@@ -1,9 +1,6 @@
 class SpotsController < ApplicationController
   def index
     # if params[:menu_item] && params[:location]
-      @search = { term: params[:menu_item],
-                location: params[:location] }
-      @all_data = FetchSpots.new(@search[:term], @search[:location]).fetch_all_data
     # end
     # if in DB
     #check is menu items exist in database already within location
@@ -19,6 +16,21 @@ class SpotsController < ApplicationController
     # `#{}cmd`
   end
 
+  def create
+      @search = { term: params[:menu_item],
+                location: params[:location] }
+      @all_data = FetchEats.new(@search[:term], @search[:location]).fetch_all_data
+
+  end
+
   private
 
+
+  def find_spot_search
+    #determine via spots boolean columns what the search is
+  end
+
+  def eat_params
+    # params.require(:eat)
+  end
 end

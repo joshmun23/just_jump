@@ -1,4 +1,4 @@
-class FetchSpots
+class FetchEats
   def initialize(search_term, search_location)
     @search_term = search_term
     @search_location = search_location

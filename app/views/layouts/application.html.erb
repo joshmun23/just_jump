@@ -6,16 +6,17 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
-    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
-    <div class="sticky">
+    <div class="fixed">
       <nav class="top-bar">
         <section class="top-bar-section">
           <!-- Right Nav Section -->
@@ -23,7 +24,7 @@
 
             <li class="active"><%= link_to "Home", spots_path %></li>
             <li class="has-dropdown">
-              <a href="#">Right Button Dropdown</a>
+              <a href="#">Insert User Functionality</a>
               <ul class="dropdown">
                 <li><a href="#">First link in dropdown</a></li>
                 <li class="active"><a href="#">Active link in dropdown</a></li>
@@ -36,33 +37,51 @@
             <li class="name">
               <h1><%= link_to "Let's Eat", spots_path %></h1>
             </li>
+
+            <%= form_tag(spots_path, method: "get") do %>
+              <li class="search-label">
+                <%= search_field_tag :menu_item, nil, placeholder: "Find Your Food" %>
+              </li>
+              <li class="search-label">
+                <%= search_field_tag :location, nil, placeholder: "Enter City" %>
+              </li>
+              <li class="button tiny round">
+                <%= button_tag { content_tag(:strong, "Find Your Food") } %>
+              </li>
+            <% end %>
+
+            <%= form_for(@search) do |f| %>
+              <li class="search-label">
+                <%= search_field :menu_item, nil, placeholder: "Find Your Food" %>
+              </li>
+              <li class="search-label">
+                <%= search_field :location, nil, placeholder: "Enter City" %>
+              </li>
+              <li class="button tiny round">
+                <%= button { content(:strong, "Find Your Food") } %>
+              </li>
+            <% end %>
+
+
+
           </ul>
         </section>
       </nav>
     </div>
 
+
+  <div class="content">
     <div class="main-heading">
       <h1>Let's Eat</h1>
     </div>
     <div class="search-form-area">
       <ul class="search-form">
-        <%= form_tag(spots_path, method: "get") do %>
-          <li class="search-label">
-            <%= label_tag :menu_item %>
-            <%= search_field_tag :menu_item, nil, placeholder: "Find Your Food" %>
-          </li>
-          <li class="search-label">
-            <%= label_tag :location %>
-            <%= search_field_tag :location, nil, placeholder: "Enter City" %>
-          </li>
-          <li class="search-submit">
-            <%= submit_tag "Find Your Food" %>
-          </li>
-        <% end %>
       </ul>
     </div>
 
     <%= yield %>
+
+  </div>
 
   </body>
 </html>

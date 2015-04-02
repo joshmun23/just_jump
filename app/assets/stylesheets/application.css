@@ -17,13 +17,25 @@
 
 body {
   background-color: #FCECDF;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
   font-family: 'Oswald', sans-serif;
   color: #801515;
 }
 
-.top-bar-section {
-  background-color: white;
+
+ul li {
+  list-style: none
+}
+
+.content {
+  margin-top: 5em;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.main-heading {
+  text-align: center;
+}
+
+.left li {
+  display: inline-block;
 }
