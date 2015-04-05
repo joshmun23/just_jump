@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329192209) do
+ActiveRecord::Schema.define(version: 20150405001437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20150329192209) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "food_searches", force: :cascade do |t|
+    t.string   "search_term",                    null: false
+    t.string   "search_location",                null: false
+    t.integer  "total_search_count", default: 0, null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "food_searches", ["search_term", "search_location"], name: "index_food_searches_on_search_term_and_search_location", unique: true, using: :btree
 
   create_table "menu_items", force: :cascade do |t|
     t.datetime "created_at",    null: false
@@ -84,11 +94,17 @@ ActiveRecord::Schema.define(version: 20150329192209) do
     t.string   "mobile_url"
     t.string   "snippet_text"
     t.string   "street_number"
-    t.decimal  "latitude"
+    t.float    "latitude"
     t.decimal  "longitude"
     t.string   "locality"
     t.integer  "street_name_id", null: false
     t.integer  "postal_code_id", null: false
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.boolean  "will_eat",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "state_codes", force: :cascade do |t|

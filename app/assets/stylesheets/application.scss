@@ -17,13 +17,58 @@
 
 body {
   background-color: #FCECDF;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
   font-family: 'Oswald', sans-serif;
+  color: #801515;
+  text-align: center;
+
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+.main-body {
+  margin-top: 5em;
+}
+
+.main-title {
+  margin-bottom: 2em;
+
+  box-shadow: .4em .4em .25em #801515;
+}
+
+.main-body .main-title h1 {
   color: #801515;
 }
 
-.top-bar-section {
-  background-color: white;
+.main-body {
+  position: relative;
+}
+
+.left .has-form .alert {
+  background-color: #FCECDF;
+  color: #801515;
+}
+
+.left .has-form .alert:hover {
+  background-color: #801515;
+  color: #FCECDF;
+  border-color: #FCECDF;
+}
+
+.has-form .alert {
+  font-family: 'Oswald', sans-serif;
+  color: #FCECDF;
+}
+
+.has-form .form-control {
+  background-color: #FCECDF;
+  border-color: #801515;
+}
+
+.has-form .form-control:focus {
+  background-color: #801515;
+  color: #FCECDF;
+  border-color: #FCECDF;
 }
