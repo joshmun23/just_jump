@@ -6,13 +6,13 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
@@ -22,12 +22,12 @@
           <!-- Right Nav Section -->
           <ul class="right">
 
-            <li class="active"><%= link_to "Home", spots_path %></li>
+            <li class="top-bar-alert"><%= link_to "Home", root_path %></li>
             <li class="has-dropdown">
               <a href="#">Insert User Functionality</a>
               <ul class="dropdown">
                 <li><a href="#">First link in dropdown</a></li>
-                <li class="active"><a href="#">Active link in dropdown</a></li>
+                <li><a href="#">Active link in dropdown</a></li>
               </ul>
             </li>
           </ul>
@@ -35,53 +35,65 @@
           <!-- Left Nav Section -->
           <ul class="left">
             <li class="name">
-              <h1><%= link_to "Let's Eat", spots_path %></h1>
+              <%= link_to "Jump!", root_path %>
             </li>
 
-            <%= form_tag(spots_path, method: "get") do %>
-              <li class="search-label">
-                <%= search_field_tag :menu_item, nil, placeholder: "Find Your Food" %>
-              </li>
-              <li class="search-label">
-                <%= search_field_tag :location, nil, placeholder: "Enter City" %>
-              </li>
-              <li class="button tiny round">
-                <%= button_tag { content_tag(:strong, "Find Your Food") } %>
-              </li>
-            <% end %>
+            <li class="has-form">
+              <div class="row collapse">
 
-            <%= form_for(@search) do |f| %>
-              <li class="search-label">
-                <%= search_field :menu_item, nil, placeholder: "Find Your Food" %>
-              </li>
-              <li class="search-label">
-                <%= search_field :location, nil, placeholder: "Enter City" %>
-              </li>
-              <li class="button tiny round">
-                <%= button { content(:strong, "Find Your Food") } %>
-              </li>
-            <% end %>
+                <% if params[:food_search] %>
+                  <%= form_for @spot, url: url_for(controller: 'food_searches', action: 'create') do |f| %>
 
+                    <div class="large-5 small-9 columns">
+                      <%= f.text_field :search_term, class: 'form-control', autofocus: true, placeholder: "What're you craving today?" %>
+                    </div>
+                    <div class="large-5 small-9 columns">
+                      <%= f.text_field :search_location, class: 'form-control', autofocus: true, placeholder: 'And where are you?' %>
+                    </div>
+                    <div class="large-2 small-3 columns">
+                      <%= f.submit "Feed Your Need", class: 'button small alert' %>
+                    </div>
 
+                  <% end %>
+                <% end %>
+              </div>
+            </li>
 
           </ul>
         </section>
       </nav>
+
     </div>
 
+    <div class="main-body">
+      <div class="main-heading">
+        <h1 class="main-title">Just Jump!</h1>
+      </div>
 
-  <div class="content">
-    <div class="main-heading">
-      <h1>Let's Eat</h1>
-    </div>
-    <div class="search-form-area">
-      <ul class="search-form">
+      <ul>
+        <% if params[:controller] == 'food_searches' && !params[:food_search]%>
+          <li class="has-form">
+            <div class="row collapse">
+                <%= form_for @spot, url: url_for(controller: 'food_searches', action: 'create') do |f| %>
+
+                  <div class="large-6 small-9 columns">
+                    <%= f.text_field :search_term, class: 'form-control', autofocus: true, placeholder: "What're you craving today?" %>
+                  </div>
+                  <div class="large-6 small-9 columns">
+                    <%= f.text_field :search_location, class: 'form-control', autofocus: true, placeholder: 'And where are you?' %>
+                  </div>
+                  <div class="large-12 small-3 columns">
+                    <%= f.submit "Feed Your Need", class: 'button small alert' %>
+                  </div>
+
+                <% end %>
+            </div>
+          </li>
+        <% end %>
       </ul>
+
+      <%= yield %>
+
     </div>
-
-    <%= yield %>
-
-  </div>
-
   </body>
 </html>

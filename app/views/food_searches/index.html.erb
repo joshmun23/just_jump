@@ -1,0 +1,100 @@
+<div class="row large-4 columns">
+    <% if @restaurant_data %>
+      <ul class="accordion" data-accordion>
+        <% @restaurant_data.each_with_index do |restaurant, index| %>
+
+          <% if index == 0 %>
+
+
+            <li class="accordion-navigation">
+              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}
+                                     Click here to find me!!" %></a>
+
+              <div id="panel<%= index %>a" class="content active">
+                <span class="menu_item"><%= restaurant[2] %></span>
+              </div>
+            </li>
+
+          <% else %>
+
+            <li class="accordion-navigation">
+              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}" %></a>
+              <div id="panel<%= index %>a" class="content">
+                <span class="menu_item"><%= restaurant[2] %></span>
+              </div>
+            </li>
+
+          <% end %>
+
+
+      <% end %>
+      </ul>
+  <% end %>
+</div>
+
+<div class="row large-4 columns">
+  <% if @restaurant_data %>
+      <ul class="accordion" data-accordion>
+        <% @restaurant_data.each_with_index do |restaurant, index| %>
+
+          <% if index == 0 %>
+
+
+            <li class="accordion-navigation">
+              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}" %></a>
+
+              <div id="panel<%= index %>a" class="content active">
+                <span class="menu_item"><%= restaurant[2] %></span>
+              </div>
+            </li>
+
+          <% else %>
+
+            <li class="accordion-navigation">
+              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}" %></a>
+              <div id="panel<%= index %>a" class="content">
+                <span class="menu_item"><%= restaurant[2] %></span>
+              </div>
+            </li>
+
+          <% end %>
+
+
+      <% end %>
+      </ul>
+  <% end %>
+</div>
+
+<div class="row large-4 columns">
+    <% if @restaurant_data %>
+      <ul class="accordion" data-accordion>
+        <% @restaurant_data.each_with_index do |restaurant, index| %>
+
+          <% if index == 0 %>
+
+
+            <li class="accordion-navigation">
+              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}
+                                     Click here to find me!!" %></a>
+
+              <div id="panel<%= index %>a" class="content active">
+                <span class="menu_item"><%= restaurant[2] %></span>
+              </div>
+            </li>
+
+          <% else %>
+
+            <li class="accordion-navigation">
+              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}" %></a>
+              <div id="panel<%= index %>a" class="content">
+                <span class="menu_item"><%= restaurant[2] %></span>
+              </div>
+            </li>
+
+          <% end %>
+
+
+      <% end %>
+      </ul>
+  <% end %>
+</div>

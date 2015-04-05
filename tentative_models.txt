@@ -1,0 +1,3 @@
+    add_index :searches, [:search_term, :search_location, :user_id], unique: true
+user_id
+      t.integer :user_search_count, default: 0, null: false
