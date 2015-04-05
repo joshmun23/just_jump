@@ -48,7 +48,6 @@ class YelpAPI
     r_data['longitude'] = r_data['location']['coordinate']['longitude'].to_f
     r_data['latitude'] = r_data['location']['coordinate']['latitude'].to_f
 
-    binding.pry
     r_data
   end
 end
