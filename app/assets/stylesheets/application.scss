@@ -1,0 +1,74 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require foundation_and_overrides
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  background-color: #FCECDF;
+  font-family: 'Oswald', sans-serif;
+  color: #801515;
+  text-align: center;
+
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+.main-body {
+  margin-top: 5em;
+}
+
+.main-title {
+  margin-bottom: 2em;
+
+  box-shadow: .4em .4em .25em #801515;
+}
+
+.main-body .main-title h1 {
+  color: #801515;
+}
+
+.main-body {
+  position: relative;
+}
+
+.left .has-form .alert {
+  background-color: #FCECDF;
+  color: #801515;
+}
+
+.left .has-form .alert:hover {
+  background-color: #801515;
+  color: #FCECDF;
+  border-color: #FCECDF;
+}
+
+.has-form .alert {
+  font-family: 'Oswald', sans-serif;
+  color: #FCECDF;
+}
+
+.has-form .form-control {
+  background-color: #FCECDF;
+  border-color: #801515;
+}
+
+.has-form .form-control:focus {
+  background-color: #801515;
+  color: #FCECDF;
+  border-color: #FCECDF;
+}
