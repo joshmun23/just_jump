@@ -10,7 +10,6 @@ class FoodSearchesController < ApplicationController
       @spot.save
 
       @restaurant_data = FetchEats.new(food_search_params[:search_term], food_search_params[:search_location]).fetch_all_data
-      binding.pry
     end
 
 
