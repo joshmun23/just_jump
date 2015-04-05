@@ -42,7 +42,7 @@
               <div class="row collapse">
 
                 <% if params[:food_search] %>
-                  <%= form_for @spot do |f| %>
+                  <%= form_for @spot, url: url_for(controller: 'food_searches', action: 'create') do |f| %>
 
                     <div class="large-5 small-9 columns">
                       <%= f.text_field :search_term, class: 'form-control', autofocus: true, placeholder: "What're you craving today?" %>
