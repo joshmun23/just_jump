@@ -1,34 +1,8 @@
 <div class="row large-4 columns">
-    <% if @restaurant_data %>
-      <ul class="accordion" data-accordion>
-        <% @restaurant_data.each_with_index do |restaurant, index| %>
-
-          <% if index == 0 %>
-
-
-            <li class="accordion-navigation">
-              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}
-                                     Click here to find me!!" %></a>
-
-              <div id="panel<%= index %>a" class="content active">
-                <span class="menu_item"><%= restaurant[2] %></span>
-              </div>
-            </li>
-
-          <% else %>
-
-            <li class="accordion-navigation">
-              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}" %></a>
-              <div id="panel<%= index %>a" class="content">
-                <span class="menu_item"><%= restaurant[2] %></span>
-              </div>
-            </li>
-
-          <% end %>
-
-
-      <% end %>
-      </ul>
+  <% if @restaurant_data %>
+    <ul>
+      <li><img src="http://uncletonysnypizza.com/wp-content/uploads/2012/10/pep_pizza_BIG.jpg"></li>
+    <ul>
   <% end %>
 </div>
 
@@ -66,35 +40,14 @@
 </div>
 
 <div class="row large-4 columns">
-    <% if @restaurant_data %>
-      <ul class="accordion" data-accordion>
-        <% @restaurant_data.each_with_index do |restaurant, index| %>
+  <% if @restaurant_data %>
+    <h3><%= @food_search_string %></h3></br></br>
+    <em><h3>Other Popular Searches in the area include:</h3></em>
 
-          <% if index == 0 %>
-
-
-            <li class="accordion-navigation">
-              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}
-                                     Click here to find me!!" %></a>
-
-              <div id="panel<%= index %>a" class="content active">
-                <span class="menu_item"><%= restaurant[2] %></span>
-              </div>
-            </li>
-
-          <% else %>
-
-            <li class="accordion-navigation">
-              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}" %></a>
-              <div id="panel<%= index %>a" class="content">
-                <span class="menu_item"><%= restaurant[2] %></span>
-              </div>
-            </li>
-
-          <% end %>
-
-
+    <ul>
+      <% @most_popular_searches.each do |search| %>
+        <li class="popular-searches"><h4><%= "#{search.search_term}: #{search.total_search_count}" %></h4></li>
       <% end %>
-      </ul>
+    </ul>
   <% end %>
 </div>
