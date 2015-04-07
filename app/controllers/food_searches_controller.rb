@@ -13,7 +13,6 @@ class FoodSearchesController < ApplicationController
     @spot.total_search_count += 1
 
     if @spot.save
-      binding.pry
 
       @restaurant_data = FetchEats.new(food_search_params[:search_term],
                                        food_search_params[:search_location]).fetch_all_data
