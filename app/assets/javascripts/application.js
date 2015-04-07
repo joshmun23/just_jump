@@ -56,3 +56,9 @@ function initialize() {
     map.setCenter(initialLocation);
   }
 }
+
+$(window).on('scroll', function(){
+    if( $(window).scrollTop() > $(document).height() - $(window).height() ) {
+        $("#load-more").click();
+    }
+}).scroll();

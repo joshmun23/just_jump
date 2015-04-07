@@ -13,21 +13,22 @@
 
           <% if index == 0 %>
 
-
             <li class="accordion-navigation">
-              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}" %></a>
+              <a href="#panel<%= index %>a"><%= "#{restaurant[:restaurant].name}: #{restaurant[:menu_item].menu_item}
+                                                | #{restaurant[:menu_item].price}" %></a>
 
               <div id="panel<%= index %>a" class="content active">
-                <span class="menu_item"><%= restaurant[2] %></span>
+                <span class="menu_item"><%= restaurant[:address] %></span>
               </div>
             </li>
 
           <% else %>
 
             <li class="accordion-navigation">
-              <a href="#panel<%= index %>a"><%= "#{restaurant[1].name}: #{restaurant[0].menu_item} | #{restaurant[0].price}" %></a>
+              <a href="#panel<%= index %>a"><%= "#{restaurant[:restaurant].name}: #{restaurant[:menu_item].menu_item}
+                                                | #{restaurant[:menu_item].price}" %></a>
               <div id="panel<%= index %>a" class="content">
-                <span class="menu_item"><%= restaurant[2] %></span>
+                <span class="menu_item"><%= restaurant[:address] %></span>
               </div>
             </li>
 
