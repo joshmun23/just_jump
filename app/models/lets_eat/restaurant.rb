@@ -6,5 +6,4 @@ class Restaurant < ActiveRecord::Base
   belongs_to :street_name
 
   belongs_to :postal_code
-
 end
