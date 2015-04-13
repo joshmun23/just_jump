@@ -51,7 +51,7 @@
                       <%= f.text_field :search_location, class: 'form-control', autofocus: true, placeholder: 'And where are you?' %>
                     </div>
                     <div class="large-2 small-3 columns">
-                      <%= f.submit "Feed Your Need", class: 'button small alert' %>
+                      <%= f.submit "Feed Your Need", class: 'button small alert topbar', id: 'top-bar-submit' %>
                     </div>
 
                   <% end %>
@@ -65,11 +65,11 @@
 
     </div>
 
-    <div class="main-body">
-      <div class="main-heading">
-        <h1 class="main-title">Just Jump!</h1>
-      </div>
+    <div class="main-heading">
+      <h1 class="main-title">Just Jump!</h1>
+    </div>
 
+    <div class="main-body-container small-12 columns">
       <ul>
         <% if params[:controller] == 'food_searches' && !params[:food_search]%>
           <li class="has-form">
@@ -85,7 +85,6 @@
                   <div class="large-12 small-3 columns">
                     <%= f.submit "Feed Your Need", class: 'button small alert' %>
                   </div>
-
                 <% end %>
             </div>
           </li>

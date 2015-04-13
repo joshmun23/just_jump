@@ -9042,6 +9042,21 @@ th.hide-for-touch {
     display: table-cell !important;
   }
 }
+/* line 1, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
+.row .columns .fixed {
+  height: 85vh;
+  overflow: auto;
+}
+
+/* line 6, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
+.row .fixed .index {
+  position: fixed;
+}
+
+/* line 10, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
+img {
+  width: 10%;
+}
 .jumper-body {
   text-align: center;
 }
@@ -9062,7 +9077,7 @@ th.hide-for-touch {
 
 
  */
-/* line 19, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
+/* line 19, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 body {
   background-color: #FCECDF;
   font-family: 'Oswald', sans-serif;
@@ -9070,66 +9085,64 @@ body {
   text-align: center;
 }
 
-/* line 27, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
+/* line 27, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 li {
   list-style: none;
   display: inline-block;
 }
 
-/* line 32, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
-.main-body {
-  margin-top: 5em;
-}
-
-/* line 36, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
+/* line 32, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .main-title {
   margin-bottom: 2em;
+  color: #801515;
+  text-spacing: 5em;
   box-shadow: .4em .4em .25em #801515;
 }
 
-/* line 42, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
-.main-body .main-title h1 {
-  color: #801515;
+/* line 39, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
+.main-heading {
+  margin-top: 5em;
 }
 
-/* line 46, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
+/* line 43, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .main-body {
+  margin-top: 5em;
   position: relative;
 }
 
-/* line 50, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
+/* line 48, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .left .has-form .alert {
   background-color: #FCECDF;
   color: #801515;
 }
 
-/* line 55, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
+/* line 53, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .left .has-form .alert:hover {
   background-color: #801515;
   color: #FCECDF;
   border-color: #FCECDF;
 }
 
-/* line 61, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
+/* line 59, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .has-form .alert {
   font-family: 'Oswald', sans-serif;
   color: #FCECDF;
 }
 
-/* line 66, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
+/* line 64, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .has-form .form-control {
   background-color: #FCECDF;
   border-color: #801515;
 }
 
-/* line 71, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
+/* line 69, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .has-form .form-control:focus {
   background-color: #801515;
   color: #FCECDF;
   border-color: #FCECDF;
 }
 
-/* line 77, /Users/joshmun23/side_projects/lets_meat/app/assets/stylesheets/application.scss */
+/* line 75, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .popular-searches {
   display: block;
 }

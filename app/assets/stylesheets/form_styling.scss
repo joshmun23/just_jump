@@ -1,0 +1,30 @@
+.left .has-form .alert {
+  background-color: #FCECDF;
+  color: #801515;
+}
+
+.left .has-form .alert:hover {
+  background-color: #801515;
+  color: #FCECDF;
+  border-color: #FCECDF;
+}
+
+.has-form .alert {
+  font-family: 'Oswald', sans-serif;
+  color: #FCECDF;
+}
+
+.has-form .form-control {
+  background-color: #FCECDF;
+  border-color: #801515;
+}
+
+.has-form .form-control:focus {
+  background-color: #801515;
+  color: #FCECDF;
+  border-color: #FCECDF;
+}
+
+#top-bar-submit:hover {
+  border-color: #FCECDF;
+}
