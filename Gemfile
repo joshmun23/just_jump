@@ -13,12 +13,6 @@ gem 'foundation-rails', '5.5.1.0'
 gem 'turbolinks'
 gem 'geocoder'
 
-group :development, :test do
-  gem 'capybara'
-  gem 'pry'
-  gem 'rspec'
-end
-
 #Photo Uploading
 gem "mini_magick"
 gem 'carrierwave'
@@ -28,4 +22,9 @@ gem "omniauth-github"
 gem 'omniauth-facebook'
 gem 'oauth'
 gem 'yelp', require: 'yelp'
-gem 'kaminari'
+
+group :development, :test do
+  gem 'capybara'
+  gem 'pry'
+  gem 'rspec'
+end
