@@ -28,3 +28,4 @@ gem "omniauth-github"
 gem 'omniauth-facebook'
 gem 'oauth'
 gem 'yelp', require: 'yelp'
+gem 'kaminari'

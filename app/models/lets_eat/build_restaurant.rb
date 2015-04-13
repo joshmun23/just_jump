@@ -54,12 +54,13 @@ class BuildRestaurant
     @restaurant.phone = restaurant['phone']
     @restaurant.is_closed = restaurant['is_closed']
     @restaurant.url = restaurant['url']
-    @restaurant.longitude = restaurant['location']['geo']['coordinates'][0]
-    @restaurant.latitude = restaurant['location']['geo']['coordinates'][1]
-    @restaurant.street_number = restaurant['location']['address1'].split(' ').first
   end
 
   def save_restaurant_location(restaurant)
+    @restaurant.longitude = restaurant['location']['geo']['coordinates'][0]
+    @restaurant.latitude = restaurant['location']['geo']['coordinates'][1]
+    @restaurant.street_number = restaurant['location']['address1'].split(' ').first
+
     country_code = restaurant['location']['country']
     save_country_code(country_code)
 

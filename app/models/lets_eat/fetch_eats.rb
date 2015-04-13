@@ -40,7 +40,7 @@ class FetchEats
       address += %Q{#{data[1].street_number} #{street_name.street_name} #{city_code.city},
       #{state_code.state_code} #{postal_code.postal_code}}
 
-      [data[0],data[1],address]
+      { menu_item: data[0], restaurant: data[1], address: address }
     end
     result
   end
