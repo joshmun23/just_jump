@@ -6,12 +6,11 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-
-
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   </head>
 
@@ -23,13 +22,25 @@
           <ul class="right">
 
             <li class="top-bar-alert"><%= link_to "Home", root_path %></li>
-            <li class="has-dropdown">
-              <a href="#">Insert User Functionality</a>
-              <ul class="dropdown">
-                <li><a href="#">First link in dropdown</a></li>
-                <li><a href="#">Active link in dropdown</a></li>
-              </ul>
-            </li>
+
+            <% if current_user %>
+
+              <li class="has-dropdown">
+
+                <%= link_to current_user.email, '#', "data-dropdown" => "hover1", "data-options" => "is_hover:true; hover_timeout:5000" %>
+
+                <ul class="dropdown">
+                  <li><%= link_to "Edit Profile", edit_user_registration_path(current_user) %></li>
+                  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+                </ul>
+
+              </li>
+
+            <% else %>
+              <li class="top-bar-alert"><%= link_to "Sign Up", new_user_registration_path %></li>
+              <li class="top-bar-alert"><%= link_to "Sign In", new_user_session_path %></li>
+            <% end %>
+
           </ul>
 
           <!-- Left Nav Section -->
@@ -68,6 +79,11 @@
     <div class="main-heading">
       <h1 class="main-title">Just Jump!</h1>
     </div>
+
+    <% if flash.any? %>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+    <% end %>
 
     <div class="main-body-container small-12 columns">
       <ul>
