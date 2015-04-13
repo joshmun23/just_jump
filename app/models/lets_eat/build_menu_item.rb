@@ -13,6 +13,7 @@ class BuildMenuItem
       # current_restaurant_id = Restaurant.where(name: restaurant['name']).first
 
       restaurant['menu_items'].each do |menu_item|
+        next if results.include?(MenuItem.where(menu_item: menu_item['name'], restaurant_id: current_restaurant_id).first)
         if !MenuItem.where(menu_item: menu_item['name'], restaurant_id: current_restaurant_id).first
           @menu_item.menu_item = menu_item['name']
           @menu_item.price = menu_item['price']
@@ -21,9 +22,10 @@ class BuildMenuItem
 
         else
           @menu_item = MenuItem.where(menu_item: menu_item['name'], restaurant_id: current_restaurant_id).first
+
         end
 
-        find_or_create_restaurant_menu_item(@menu_item.id, current_restaurant_id)
+        # find_or_create_restaurant_menu_item(@menu_item.id, current_restaurant_id)
 
         results << [@menu_item, @restaurant_data[index]]
 
@@ -33,9 +35,10 @@ class BuildMenuItem
     results
   end
 
-  def find_or_create_restaurant_menu_item(menu_item_id, restaurant_id)
-    index_exists = !RestaurantMenuItems.where(menu_item_id: menu_item_id, restaurant_id: restaurant_id).empty?
+  # def find_or_create_restaurant_menu_item(menu_item_id, restaurant_id)
+  #   binding.pry
+  #   index_exists = !RestaurantMenuItems.where(menu_item_id: menu_item_id, restaurant_id: restaurant_id).empty?
 
-    RestaurantMenuItems.create!(menu_item_id: menu_item_id, restaurant_id: restaurant_id) if !index_exists
-  end
+  #   RestaurantMenuItems.create!(menu_item_id: menu_item_id, restaurant_id: restaurant_id) if !index_exists
+  # end
 end

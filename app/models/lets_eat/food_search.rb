@@ -6,7 +6,14 @@ class FoodSearch < ActiveRecord::Base
   validates :search_location,
     presence: true
 
-  def add_to_counter
-    #increment total search for term and location here
+  def find_or_create_food_search
+    food_search_params = { search_term: search_term, search_location: search_location }
+    spot_exists = FoodSearch.where(food_search_params).first
+
+    spot = !spot_exists ? FoodSearch.new(food_search_params) : spot_exists
+
+    spot.total_search_count += 1
+
+    spot
   end
 end

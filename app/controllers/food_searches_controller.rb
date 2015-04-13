@@ -9,9 +9,9 @@ class FoodSearchesController < ApplicationController
 
   def create
     if params[:food_search]
-      spot_exists = FoodSearch.where(food_search_params).first
-      @spot = !spot_exists ? FoodSearch.new(food_search_params) : spot_exists
-      @spot.total_search_count += 1
+      @spot = FoodSearch.new(food_search_params)
+
+      @spot = @spot.find_or_create_food_search
 
       if @spot.save
 
