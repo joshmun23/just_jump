@@ -16841,4 +16841,4 @@ return jQuery;
 
 
 
-$(document).foundation();
+$(function(){ $(document).foundation(); });

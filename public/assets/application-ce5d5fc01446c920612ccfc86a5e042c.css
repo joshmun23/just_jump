@@ -9042,6 +9042,74 @@ th.hide-for-touch {
     display: table-cell !important;
   }
 }
+/* line 1, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
+.popular-searches {
+  display: block;
+}
+
+/* line 5, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
+.side-content-container {
+  height: 33%;
+  border-bottom: solid 1px;
+}
+
+/* line 14, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
+.food-search-container-fixed {
+  height: 68Vh;
+  border: solid 1px;
+  border-color: red;
+  position: relative;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  overflow-y: auto;
+}
+
+/* line 24, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
+.food-search-container-relative {
+  height: 68Vh;
+  border: solid 1px;
+  border-color: red;
+  position: relative;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  overflow-y: auto;
+}
+/* line 1, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+.left .has-form .alert {
+  background-color: #FCECDF;
+  color: #801515;
+}
+
+/* line 6, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+.left .has-form .alert:hover {
+  background-color: #801515;
+  color: #FCECDF;
+  border-color: #FCECDF;
+}
+
+/* line 12, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+.has-form .alert {
+  font-family: 'Oswald', sans-serif;
+  color: #FCECDF;
+}
+
+/* line 17, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+.has-form .form-control {
+  background-color: #FCECDF;
+  border-color: #801515;
+}
+
+/* line 22, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+.has-form .form-control:focus {
+  background-color: #801515;
+  color: #FCECDF;
+  border-color: #FCECDF;
+}
+
+/* line 28, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+#top-bar-submit:hover {
+  border-color: #FCECDF;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -9054,9 +9122,9 @@ th.hide-for-touch {
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require foundation_and_overrides
- *= require_tree .
- *= require_self
+
+
+
  */
 /* line 19, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 body {
