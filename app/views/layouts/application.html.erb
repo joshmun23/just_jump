@@ -23,20 +23,28 @@
           <ul class="right">
 
             <li class="top-bar-alert"><%= link_to "Home", root_path %></li>
-            <li class="has-dropdown">
-              <a href="#">Insert User Functionality</a>
-              <ul class="dropdown">
-                <li><a href="#">First link in dropdown</a></li>
-                <li><a href="#">Active link in dropdown</a></li>
-              </ul>
-            </li>
 
+
+            <% if current_user %>
+            <li>
+              <a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:5000"><%= current_user.email %></a></li>
+
+            <ul id="hover1" class="f-dropdown" data-dropdown-content>
+              <li><%= link_to 'View Profile', '' %></li>
+              <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+            </ul>
+
+            <% else %>
+              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+              <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <% end %>
 
           </ul>
 
           <!-- Left Nav Section -->
           <ul class="left">
-            <li class="name">
+            <li class="name", id="jump-border">
               <%= link_to "Jump!", root_path %>
             </li>
 

@@ -22,9 +22,19 @@
 .has-form .form-control:focus {
   background-color: #801515;
   color: #FCECDF;
-  border-color: #FCECDF;
+  border: solid 1px;
 }
 
 #top-bar-submit:hover {
   border-color: #FCECDF;
+}
+
+#hover1 li {
+  width: 100%;
+  border: solid 1px;
+  border-color: #801515;
+}
+
+#jump-border a:hover {
+  font-weight: bold;
 }
