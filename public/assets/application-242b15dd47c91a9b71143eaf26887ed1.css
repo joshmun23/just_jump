@@ -9042,25 +9042,6 @@ th.hide-for-touch {
     display: table-cell !important;
   }
 }
-/* line 1, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
-.row .columns .fixed {
-  height: 85vh;
-  overflow: auto;
-}
-
-/* line 6, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
-.row .fixed .index {
-  position: fixed;
-}
-
-/* line 10, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
-img {
-  width: 10%;
-}
-.jumper-body {
-  text-align: center;
-}
-
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -9073,9 +9054,9 @@ img {
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-
-
-
+ *= require foundation_and_overrides
+ *= require_tree .
+ *= require_self
  */
 /* line 19, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 body {
@@ -9085,64 +9066,30 @@ body {
   text-align: center;
 }
 
-/* line 27, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
+/* line 26, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 li {
   list-style: none;
   display: inline-block;
 }
 
-/* line 32, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
-.main-title {
-  margin-bottom: 2em;
-  color: #801515;
-  text-spacing: 5em;
-  box-shadow: .4em .4em .25em #801515;
-}
-
-/* line 39, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
+/* line 31, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .main-heading {
   margin-top: 5em;
 }
 
-/* line 43, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
-.main-body {
-  margin-top: 5em;
-  position: relative;
+/* line 35, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
+.main-title {
+  margin-bottom: 1em;
+  letter-spacing: 2px;
+  box-shadow: .4em .4em .25em #801515;
+  text-align: center;
 }
 
-/* line 48, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
-.left .has-form .alert {
-  background-color: #FCECDF;
-  color: #801515;
-}
-
-/* line 53, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
-.left .has-form .alert:hover {
-  background-color: #801515;
-  color: #FCECDF;
-  border-color: #FCECDF;
-}
-
-/* line 59, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
-.has-form .alert {
-  font-family: 'Oswald', sans-serif;
-  color: #FCECDF;
-}
-
-/* line 64, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
-.has-form .form-control {
-  background-color: #FCECDF;
+/* line 42, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
+.main-body-container {
+  border: solid 1px;
   border-color: #801515;
-}
-
-/* line 69, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
-.has-form .form-control:focus {
-  background-color: #801515;
-  color: #FCECDF;
-  border-color: #FCECDF;
-}
-
-/* line 75, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
-.popular-searches {
-  display: block;
+  width: 100%;
+  height: 70vh;
+  margin-left: .1em;
 }
