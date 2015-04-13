@@ -1,1 +1,33 @@
+.popular-searches {
+  display: block;
+}
+
+.side-content-container {
+  height: 33%;
+  border-bottom: solid 1px;
+
+}
+
+.img {
+}
+
+.food-search-container-fixed {
+  height: 68Vh;
+  border: solid 1px;
+  border-color: red;
+  position: relative;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  overflow-y: auto;
+}
+
+.food-search-container-relative {
+  height: 68Vh;
+  border: solid 1px;
+  border-color: red;
+  position: relative;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  overflow-y: auto;
+}
 

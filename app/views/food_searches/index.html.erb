@@ -1,12 +1,26 @@
-<div class="row large-4 columns">
+<div class="large-4 columns food-search-container-fixed">
   <% if @restaurant_data %>
-    <ul>
-      <li><img src="http://uncletonysnypizza.com/wp-content/uploads/2012/10/pep_pizza_BIG.jpg"></li>
-    <ul>
+
+    <div class="small-12 columns row side-content-container">
+      <ul>
+        <li class="side-content item-1"><img src="http://uncletonysnypizza.com/wp-content/uploads/2012/10/pep_pizza_BIG.jpg"></li>
+      <ul>
+    </div>
+    <div class="small-12 columns row side-content-container">
+      <ul>
+        <li class="side-content item-2"><img src="http://uncletonysnypizza.com/wp-content/uploads/2012/10/pep_pizza_BIG.jpg"></li>
+      <ul>
+    </div>
+    <div class="small-12 columns row side-content-container">
+      <ul>
+        <li class="side-content item-3"><img src="http://uncletonysnypizza.com/wp-content/uploads/2012/10/pep_pizza_BIG.jpg"></li>
+      <ul>
+    </div>
+
   <% end %>
 </div>
 
-<div class="row large-4 columns">
+<div class="large-4 columns food-search-container-relative">
   <% if @restaurant_data %>
       <ul class="accordion" data-accordion>
         <% @restaurant_data.each_with_index do |restaurant, index| %>
@@ -40,15 +54,35 @@
   <% end %>
 </div>
 
-<div class="row large-4 columns">
+<div class="large-4 columns food-search-container-fixed">
   <% if @restaurant_data %>
-    <h3><%= @food_search_string %></h3></br></br>
-    <em><h3>Other Popular Searches in the area include:</h3></em>
 
-    <ul>
-      <% @most_popular_searches.each do |search| %>
-        <li class="popular-searches"><h4><%= "#{search.search_term}: #{search.total_search_count}" %></h4></li>
-      <% end %>
-    </ul>
+    <div class="small-12 columns row side-content-container">
+      <ul>
+        <li class="side-content item-1">
+          <h3><%= @food_search_string %></h3></br></br>
+        </li>
+      <ul>
+    </div>
+
+    <div class="small-12 columns row side-content-container">
+      <ul>
+        <em><h3>Other Popular Searches in the area include:</h3></em></li>
+        <li class="side-content item-2">
+          <ul>
+            <% @most_popular_searches.each do |search| %>
+              <li class="popular-searches"><h4><%= "#{search.search_term}: #{search.total_search_count}" %></h4></li>
+            <% end %>
+          </ul>
+        </li>
+      <ul>
+    </div>
+
+    <div class="small-12 columns row side-content-container">
+      <ul>
+        <li class="side-content item-3"><img src="http://uncletonysnypizza.com/wp-content/uploads/2012/10/pep_pizza_BIG.jpg"></li>
+      <ul>
+    </div>
+
   <% end %>
 </div>
