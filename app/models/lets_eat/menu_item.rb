@@ -1,7 +1,8 @@
 class MenuItem < ActiveRecord::Base
-  has_many :restaurant_menu_items
-  has_many :restaurants, through: :restaurant_menu_items
+  belongs_to :restaurant
 
-  validates :menu_item, presence: true
+  validates :menu_item,
+    presence: true,
+    uniqueness: true
 end
 

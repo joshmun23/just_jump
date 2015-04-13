@@ -7,8 +7,8 @@ class FoodSearch < ActiveRecord::Base
     presence: true
 
   def find_or_create_food_search
-    spot_exists = FoodSearch.where(search_term: search_term,
-                                   search_location: search_location).first
+    food_search_params = { search_term: search_term, search_location: search_location }
+    spot_exists = FoodSearch.where(food_search_params).first
 
     spot = !spot_exists ? FoodSearch.new(food_search_params) : spot_exists
 
