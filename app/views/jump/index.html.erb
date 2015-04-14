@@ -4,7 +4,8 @@
       <ul>
         <li>
           <div class="large-4 small-4 columns">
-            <%= button_to "Let's Eat", food_searches_path, class: "alert button" %>
+            <%= button_to "Let's Eat", new_food_search_path, class: "alert button",
+                method: 'get' %>
           </div>
         </li>
       </ul>
