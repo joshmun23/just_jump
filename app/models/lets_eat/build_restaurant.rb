@@ -13,7 +13,8 @@ class BuildRestaurant
   def save_restaurants
     results = []
     @data.each do |restaurant|
-      current_restaurant = Restaurant.where(name: restaurant['name'], locality: set_locality(restaurant))
+      current_restaurant = Restaurant.where(name: restaurant['name'],
+                            locality: set_locality(restaurant))
 
       if current_restaurant.empty?
         @restaurant.name = restaurant['name']
@@ -22,6 +23,7 @@ class BuildRestaurant
 
         set_restaurant_data(restaurant)
 
+        binding.pry if @restaurant.street_name_id.nil?
         results << (@restaurant.save ? @restaurant : nil)
       else
         results << current_restaurant.first
@@ -35,7 +37,7 @@ class BuildRestaurant
 
   def set_locality(restaurant)
     if restaurant['location']['locality']
-      restaurant['location']['locality'].split(' ').join('-')
+      restaurant['location']['locality'].split(' ').join(' ')
     else
       @search_location
     end
@@ -57,23 +59,19 @@ class BuildRestaurant
   end
 
   def save_restaurant_location(restaurant)
-    @restaurant.longitude = restaurant['location']['geo']['coordinates'][0]
-    @restaurant.latitude = restaurant['location']['geo']['coordinates'][1]
-    @restaurant.street_number = restaurant['location']['address1'].split(' ').first
-
     country_code = restaurant['location']['country']
     save_country_code(country_code)
 
     state_code = restaurant['location']['region']
     save_state_code(state_code)
 
-    city = @restaurant.locality
+    city = @restaurant.locality.split.join(' ')
     save_city(city)
 
     postal_code = restaurant['location']['postal_code']
     save_postal_code(postal_code)
 
-    street_name = restaurant['location']['address1'].split(' ')[1..-1].join(' ')
+    street_name = location_and_address_finder(restaurant)
     save_street_name(street_name)
   end
 
@@ -146,5 +144,40 @@ class BuildRestaurant
               end
 
     result = result.is_a?(Array) ? nil : result
+  end
+
+  def location_and_address_finder(restaurant)
+    if restaurant['location']['address1']
+      @restaurant.street_number = restaurant['location']['address1'].split(' ')[0]
+      street_name = restaurant['location']['address1'].split(' ')[1..-1].join(' ')
+    else
+      if restaurant['location']['geo']['coordinates']
+        @restaurant.longitude = restaurant['location']['geo']['coordinates'][0]
+        @restaurant.latitude = restaurant['location']['geo']['coordinates'][1]
+
+        full_street_name = Geocoder.address([@restaurant.latitude, @restaurant.longitude])
+        street_name = full_street_name.split(', ')[0].split[1..-1].join(' ')
+        @restaurant.street_number = street_name.split[0]
+      end
+    end
+
+      street_city = "#{street_name}, #{@city.city}, #{@postal_code.postal_code}, "
+      postal_state = "#{@postal_code.postal_code}, #{@state_code.state_code}"
+
+      backup_street_name = street_city + postal_state
+
+      full_street_name = full_street_name ? full_street_name : backup_street_name
+
+    if restaurant['location']['geo']
+      @restaurant.latitude = restaurant['location']['geo']['coordinates'][1]
+      @restaurant.longitude = restaurant['location']['geo']['coordinates'][0]
+    else
+      binding.pry
+      coordinates = Geocoder.coordinates(full_street_name)
+      @restaurant.latitude = coordinates[0]
+      @restaurant.longitude = coordinates[1]
+    end
+
+    street_name
   end
 end
