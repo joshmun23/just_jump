@@ -172,7 +172,6 @@ class BuildRestaurant
       @restaurant.latitude = restaurant['location']['geo']['coordinates'][1]
       @restaurant.longitude = restaurant['location']['geo']['coordinates'][0]
     else
-      binding.pry
       coordinates = Geocoder.coordinates(full_street_name)
       @restaurant.latitude = coordinates[0]
       @restaurant.longitude = coordinates[1]
