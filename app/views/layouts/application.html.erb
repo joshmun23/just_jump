@@ -24,7 +24,6 @@
 
             <li class="top-bar-alert"><%= link_to "Home", root_path %></li>
 
-
             <% if current_user %>
             <li>
               <a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:5000"><%= current_user.email %></a></li>
@@ -82,7 +81,8 @@
     <div class="main-body-container small-12 columns">
 
       <%= yield %>
-
     </div>
+
+   <%= javascript_include_tag 'application' %>
   </body>
 </html>

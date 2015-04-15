@@ -5,6 +5,8 @@ class FoodSearchesController < ApplicationController
 
   def new
     @spot = FoodSearch.new
+    @trends = FoodSearch.where("search_location iLIKE '%boston%'").order(
+                                total_search_count: :desc)
   end
 
   def create
@@ -24,6 +26,8 @@ class FoodSearchesController < ApplicationController
 
       @most_popular_searches = FoodSearch.where(search_location: food_search_params[:search_location])
       @most_popular_searches = @most_popular_searches.order(total_search_count: :desc)
+
+      @spot = FoodSearch.new
 
       render :index
     else
