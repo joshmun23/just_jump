@@ -1,4 +1,4 @@
-/* line 347, /Users/joshmun23/.gem/ruby/2.1.5/gems/foundation-rails-5.5.1.0/vendor/assets/stylesheets/foundation/components/_global.scss */
+@charset "UTF-8";/* line 347, /Users/joshmun23/.gem/ruby/2.1.5/gems/foundation-rails-5.5.1.0/vendor/assets/stylesheets/foundation/components/_global.scss */
 meta.foundation-version {
   font-family: "/5.5.0/";
 }
@@ -9103,12 +9103,636 @@ th.hide-for-touch {
 .has-form .form-control:focus {
   background-color: #801515;
   color: #FCECDF;
-  border-color: #FCECDF;
+  border: solid 1px;
 }
 
 /* line 28, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
 #top-bar-submit:hover {
   border-color: #FCECDF;
+}
+
+/* line 32, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+#hover1 li {
+  width: 100%;
+  border: solid 1px;
+  border-color: #801515;
+}
+
+/* line 38, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+#jump-border a:hover {
+  font-weight: bold;
+}
+@charset 'UTF-8';
+/* Slider */
+.slick-loading .slick-list
+{
+    background: #fff url('./ajax-loader.gif') center center no-repeat;
+}
+
+/* Icons */
+@font-face
+{
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('./fonts/slick.eot');
+    src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
+}
+/* Arrows */
+.slick-prev,
+.slick-next
+{
+    font-size: 0;
+    line-height: 0;
+
+    position: absolute;
+    top: 50%;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    padding: 0;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus
+{
+    color: transparent;
+    outline: none;
+    background: transparent;
+}
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before
+{
+    opacity: 1;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before
+{
+    opacity: .25;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+
+    opacity: .75;
+    color: white;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev
+{
+    left: -25px;
+}
+[dir='rtl'] .slick-prev
+{
+    right: -25px;
+    left: auto;
+}
+.slick-prev:before
+{
+    content: '←';
+}
+[dir='rtl'] .slick-prev:before
+{
+    content: '→';
+}
+
+.slick-next
+{
+    right: -25px;
+}
+[dir='rtl'] .slick-next
+{
+    right: auto;
+    left: -25px;
+}
+.slick-next:before
+{
+    content: '→';
+}
+[dir='rtl'] .slick-next:before
+{
+    content: '←';
+}
+
+/* Dots */
+.slick-slider
+{
+    margin-bottom: 30px;
+}
+
+.slick-dots
+{
+    position: absolute;
+    bottom: -45px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+.slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+.slick-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus
+{
+    outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before
+{
+    opacity: 1;
+}
+.slick-dots li button:before
+{
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .25;
+    color: black;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before
+{
+    opacity: .75;
+    color: black;
+}
+
+/* Slider */
+/* line 40, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-loading .slick-list {
+  background: #fff url(/assets/ajax-loader-590b341596915e6384d9d4d05431943f.gif) center center no-repeat;
+}
+
+/* Icons */
+@font-face {
+  font-family: "slick";
+  src: url(/fonts/slick.eot);
+  src: url(/fonts/slick.eot?#iefix) format("embedded-opentype"), url(/fonts/slick.woff) format("woff"), url(/fonts/slick.ttf) format("truetype"), url(/fonts/slick.svg#slick) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Arrows */
+/* line 58, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  margin-top: -10px;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+/* line 74, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-prev:hover, .slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  outline: none;
+  background: transparent;
+  color: transparent;
+}
+/* line 78, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-prev:hover:before, .slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1;
+}
+/* line 82, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  opacity: 0.25;
+}
+
+/* line 87, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-prev:before, .slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  opacity: 0.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 97, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-prev {
+  left: -25px;
+}
+/* line 99, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+[dir="rtl"] .slick-prev {
+  left: auto;
+  right: -25px;
+}
+/* line 103, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-prev:before {
+  content: "←";
+}
+/* line 105, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+[dir="rtl"] .slick-prev:before {
+  content: "→";
+}
+
+/* line 111, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-next {
+  right: -25px;
+}
+/* line 113, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+[dir="rtl"] .slick-next {
+  left: -25px;
+  right: auto;
+}
+/* line 117, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-next:before {
+  content: "→";
+}
+/* line 119, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+[dir="rtl"] .slick-next:before {
+  content: "←";
+}
+
+/* Dots */
+/* line 127, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-slider {
+  margin-bottom: 30px;
+}
+
+/* line 131, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-dots {
+  position: absolute;
+  bottom: -45px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  width: 100%;
+}
+/* line 139, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+/* line 147, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-dots li button {
+  border: 0;
+  background: transparent;
+  display: block;
+  height: 20px;
+  width: 20px;
+  outline: none;
+  line-height: 0px;
+  font-size: 0px;
+  color: transparent;
+  padding: 5px;
+  cursor: pointer;
+}
+/* line 159, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-dots li button:hover, .slick-dots li button:focus {
+  outline: none;
+}
+/* line 161, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-dots li button:hover:before, .slick-dots li button:focus:before {
+  opacity: 1;
+}
+/* line 165, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-dots li button:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "•";
+  width: 20px;
+  height: 20px;
+  font-family: "slick";
+  font-size: 6px;
+  line-height: 20px;
+  text-align: center;
+  color: black;
+  opacity: 0.25;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* line 182, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick-theme.scss */
+.slick-dots li.slick-active button:before {
+  color: black;
+  opacity: 0.75;
+}
+/* Slider */
+
+.slick-slider
+{
+    position: relative;
+
+    display: block;
+
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+/* Slider */
+/* line 4, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 19, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+/* line 26, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-list:focus {
+  outline: none;
+}
+/* line 30, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+/* line 35, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 44, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+}
+/* line 50, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-track:before, .slick-track:after {
+  content: "";
+  display: table;
+}
+/* line 56, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-track:after {
+  clear: both;
+}
+/* line 60, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+/* line 64, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+/* line 68, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+[dir="rtl"] .slick-slide {
+  float: right;
+}
+/* line 71, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-slide img {
+  display: block;
+}
+/* line 74, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-slide.slick-loading img {
+  display: none;
+}
+/* line 80, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+/* line 84, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-initialized .slick-slide {
+  display: block;
+}
+/* line 88, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+/* line 92, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/slick.scss */
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+.new-row-container {
+  height: 33.3333%;
+  width: 80%;
+}
+
+.top-row {
+}
+
+.top-row .upper-row-container {
+  height: 50%;
+}
+
+.top-row .bottom-row-container {
+  height: 50%;
+}
+
+.top-row .bottom-row-container h3 {
+
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
