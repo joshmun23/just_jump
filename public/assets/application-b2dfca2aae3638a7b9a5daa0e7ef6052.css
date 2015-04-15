@@ -9050,75 +9050,70 @@ th.hide-for-touch {
 /* line 5, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
 .side-content-container {
   height: 33%;
-  border-bottom: solid 1px;
 }
 
-/* line 14, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
+/* line 12, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
 .food-search-container-fixed {
   height: 68Vh;
-  border: solid 1px;
-  border-color: red;
   position: relative;
   padding-top: 1em;
   padding-bottom: 1em;
   overflow-y: auto;
 }
 
-/* line 24, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
+/* line 20, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/food_searches.scss */
 .food-search-container-relative {
   height: 68Vh;
-  border: solid 1px;
-  border-color: red;
   position: relative;
   padding-top: 1em;
   padding-bottom: 1em;
   overflow-y: auto;
 }
-/* line 1, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+/* line 5, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
 .left .has-form .alert {
   background-color: #FCECDF;
   color: #801515;
 }
 
-/* line 6, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+/* line 10, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
 .left .has-form .alert:hover {
   background-color: #801515;
   color: #FCECDF;
   border-color: #FCECDF;
 }
 
-/* line 12, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+/* line 16, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
 .has-form .alert {
   font-family: 'Oswald', sans-serif;
   color: #FCECDF;
 }
 
-/* line 17, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+/* line 21, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
 .has-form .form-control {
   background-color: #FCECDF;
   border-color: #801515;
 }
 
-/* line 22, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+/* line 26, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
 .has-form .form-control:focus {
   background-color: #801515;
   color: #FCECDF;
   border: solid 1px;
 }
 
-/* line 28, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+/* line 32, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
 #top-bar-submit:hover {
   border-color: #FCECDF;
 }
 
-/* line 32, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+/* line 36, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
 #hover1 li {
   width: 100%;
   border: solid 1px;
   border-color: #801515;
 }
 
-/* line 38, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
+/* line 42, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/form_styling.scss */
 #jump-border a:hover {
   font-weight: bold;
 }
@@ -9717,10 +9712,6 @@ th.hide-for-touch {
 }
 .new-row-container {
   height: 33.3333%;
-  width: 80%;
-}
-
-.top-row {
 }
 
 .top-row .upper-row-container {
@@ -9729,10 +9720,6 @@ th.hide-for-touch {
 
 .top-row .bottom-row-container {
   height: 50%;
-}
-
-.top-row .bottom-row-container h3 {
-
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -9750,7 +9737,7 @@ th.hide-for-touch {
 
 
  */
-/* line 19, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
+/* line 24, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 body {
   background-color: #FCECDF;
   font-family: 'Oswald', sans-serif;
@@ -9758,29 +9745,27 @@ body {
   text-align: center;
 }
 
-/* line 26, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
+/* line 31, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 li {
   list-style: none;
   display: inline-block;
 }
 
-/* line 31, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
+/* line 36, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .main-heading {
   margin-top: 5em;
 }
 
-/* line 35, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
+/* line 40, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .main-title {
   margin-bottom: 1em;
   letter-spacing: 2px;
-  box-shadow: .4em .4em .25em #801515;
+  box-shadow: 0.4em 0.4em 0.25em #801515;
   text-align: center;
 }
 
-/* line 42, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
+/* line 47, /Users/joshmun23/side_projects/just_jump/app/assets/stylesheets/application.scss */
 .main-body-container {
-  border: solid 1px;
-  border-color: #801515;
   width: 100%;
   height: 70vh;
   margin-left: .1em;

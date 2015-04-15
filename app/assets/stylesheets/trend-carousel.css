@@ -1,9 +1,5 @@
 .new-row-container {
   height: 33.3333%;
-  width: 100%;
-}
-
-.top-row {
 }
 
 .top-row .upper-row-container {
@@ -12,8 +8,4 @@
 
 .top-row .bottom-row-container {
   height: 50%;
-}
-
-.top-row .bottom-row-container h3 {
-
 }
