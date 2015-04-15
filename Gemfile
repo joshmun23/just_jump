@@ -26,8 +26,10 @@ gem 'yelp', require: 'yelp'
 
 group :development, :test do
   gem 'capybara'
-  gem 'pry'
-  gem 'rspec'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'launchy'
+  gem 'factory_girl_rails'
 end
 
 gem 'rails_12factor', group: :production
