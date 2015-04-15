@@ -1,38 +1,42 @@
+// colors
+$primary-color: #801515;
+$bg-color: #FCECDF;
+
 .left .has-form .alert {
-  background-color: #FCECDF;
-  color: #801515;
+  background-color: $bg-color;
+  color: $primary-color;
 }
 
 .left .has-form .alert:hover {
-  background-color: #801515;
-  color: #FCECDF;
-  border-color: #FCECDF;
+  background-color: $primary-color;
+  color: $bg-color;
+  border-color: $bg-color;
 }
 
 .has-form .alert {
   font-family: 'Oswald', sans-serif;
-  color: #FCECDF;
+  color: $bg-color;
 }
 
 .has-form .form-control {
-  background-color: #FCECDF;
-  border-color: #801515;
+  background-color: $bg-color;
+  border-color: $primary-color;
 }
 
 .has-form .form-control:focus {
-  background-color: #801515;
-  color: #FCECDF;
+  background-color: $primary-color;
+  color: $bg-color;
   border: solid 1px;
 }
 
 #top-bar-submit:hover {
-  border-color: #FCECDF;
+  border-color: $bg-color;
 }
 
 #hover1 li {
   width: 100%;
   border: solid 1px;
-  border-color: #801515;
+  border-color: $primary-color;
 }
 
 #jump-border a:hover {
