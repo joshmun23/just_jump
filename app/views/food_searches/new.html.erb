@@ -5,11 +5,13 @@
         <div class="row collapse">
           <%= form_for @spot, url: url_for(controller: 'food_searches', action: 'create') do |f| %>
 
-            <div class="large-6 small-6 columns">
+            <div class="large-6 small-6 columns", id="food_search_term">
+              <%= f.label :search_term, name: "term", class: 'hidden-form' %>
               <%= f.text_field :search_term, class: 'form-control', autofocus: true, placeholder: "What're you craving today?" %>
             </div>
-            <div class="large-6 small-6 columns">
-              <%= f.text_field :search_location, class: 'form-control', autofocus: true, placeholder: 'And where are you?' %>
+            <div class="large-6 small-6 columns" id="food_search_location">
+              <%= f.label :search_location, name: "term", class: 'hidden-form' %>
+              <%= f.text_field :search_location, class: 'form-control', autofocus: true, placeholder: 'And what city are you in?' %>
             </div>
             <div class="large-12 small-12 columns">
               <%= f.submit "Feed Your Need", class: 'button small alert' %>

@@ -42,3 +42,11 @@ $bg-color: #FCECDF;
 #jump-border a:hover {
   font-weight: bold;
 }
+
+.hidden-form {
+  color: $bg-color
+}
+
+.hidden-form:hover {
+  color: $primary-color
+}

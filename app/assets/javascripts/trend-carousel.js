@@ -3,7 +3,7 @@ $('.trend-carousel').slick({
   centerPadding: '60px',
   slidesToShow: 5,
   autoplay: true,
-  autoplaySpeed: 1000,
+  autoplaySpeed: 750,
   responsive: [
     {
       breakpoint: 768,

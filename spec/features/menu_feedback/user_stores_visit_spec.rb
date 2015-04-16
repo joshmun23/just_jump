@@ -9,6 +9,18 @@ feature 'User saves a restaurant and menu item',
     #     info to the Spots Model
 
   scenario 'user saves spot to review later' do
+    user = FactoryGirl.create(:user)
 
+    visit '/food_searches/new'
+
+    fill_in 'Search term', with: 'chicken parm'
+    fill_in 'Search location', with: 'boston'
+
+    click_on "Feed Your Need"
+
+    expect(page).to have_content('Chicken Parmesan')
+    expect(page).to have_content('2.00')
+
+    first('.food_saver').click_on('Let\'s eat!')
   end
 end
