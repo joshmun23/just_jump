@@ -22,9 +22,11 @@
           <!-- Right Nav Section -->
           <ul class="right">
 
-            <li class="top-bar-alert"><%= link_to "Home", root_path %></li>
 
             <% if current_user %>
+
+            <li class="top-bar-alert"><%= link_to "View Your Foods", user_menu_items_path(current_user) %></li>
+
             <li>
               <a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:5000"><%= current_user.email %></a></li>
 
@@ -44,7 +46,7 @@
           <!-- Left Nav Section -->
           <ul class="left">
             <li class="name", id="jump-border">
-              <%= link_to "Jump!", root_path %>
+              <%= link_to "Let's Eat!", root_path %>
             </li>
 
             <li class="has-form">
@@ -75,11 +77,10 @@
     </div>
 
     <div class="main-heading">
-      <h1 class="main-title">Just Jump!</h1>
+      <h1 class="main-title">Let's Eat!</h1>
     </div>
 
     <div class="main-body-container small-12 columns">
-
       <%= yield %>
     </div>
 

@@ -13,6 +13,7 @@ gem 'foundation-rails', '5.5.1.0'
 gem 'turbolinks'
 gem 'geocoder'
 gem 'devise'
+gem 'kaminari'
 
 #Photo Uploading
 gem "mini_magick"

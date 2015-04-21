@@ -28,13 +28,28 @@ body {
   text-align: center;
 }
 
+body::after {
+  content: "";
+  background: url('http://images7.alphacoders.com/402/402852.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 li {
   list-style: none;
   display: inline-block;
 }
 
 .main-heading {
-  margin-top: 5em;
+  margin-top: 2.5em;
+  padding-top: 1em;
 }
 
 .main-title {

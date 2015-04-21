@@ -44,9 +44,5 @@ $bg-color: #FCECDF;
 }
 
 .hidden-form {
-  color: $bg-color
-}
-
-.hidden-form:hover {
-  color: $primary-color
+  color: transparent;
 }

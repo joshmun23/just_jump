@@ -1,11 +1,10 @@
-.new-row-container {
-  height: 33.3333%;
-}
-
-.top-row .upper-row-container {
+.top-row-container {
   height: 50%;
 }
 
-.top-row .bottom-row-container {
+.middle-row-container {
   height: 50%;
+  margin-top: 10Vh;
+  margin-left: 5%;
+  margin-right: 5%;
 }

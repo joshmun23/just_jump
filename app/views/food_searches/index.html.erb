@@ -22,16 +22,20 @@
         <% @restaurant_data.each_with_index do |restaurant, index| %>
 
           <% if index == 0 %>
-
             <li class="accordion-navigation">
               <a href="#panel<%= index %>a"><%= "#{restaurant[:restaurant].name}: #{restaurant[:menu_item].menu_item}
                                                 | #{restaurant[:menu_item].price}" %></a>
 
               <div id="panel<%= index %>a" class="content active">
-                <span class="menu_item"><%= restaurant[:address] %></span>
+                <span class="restaurant_address"><%= restaurant[:address] %></span>
+
+                <% if current_user %>
+                  <span hidden class="item-info"><%= "#{current_user.id}, #{restaurant[:restaurant].name.gsub(':', '')}, #{restaurant[:menu_item].id}" %></span>
+                <% end %>
 
                 <div class="accordion-icon-container">
-                  <span><i class="fi-plus accordion-icon"></i></span>
+                  <span><a data-remote="true" href="#"><i </a></i></span>
+                  <span><a data-remote="true" href="#"><i class="fi-plus accordion-icon"></a></i></span>
                   <span><i class="fi-map accordion-icon"></i></span>
                 </div>
               </div>
@@ -43,9 +47,14 @@
               <a href="#panel<%= index %>a"><%= "#{restaurant[:restaurant].name}: #{restaurant[:menu_item].menu_item}
                                                 | #{restaurant[:menu_item].price}" %></a>
               <div id="panel<%= index %>a" class="content">
-                <span class="menu_item"><%= restaurant[:address] %></span>
+                <span class="restaurant_address"><%= restaurant[:address] %></span>
+
+                <% if current_user %>
+                  <span hidden class="item-info"><%= "#{current_user.id}, #{restaurant[:restaurant].name.gsub(':', '')}, #{restaurant[:menu_item].id}" %></span>
+                <% end %>
+
                 <div class="accordion-icon-container">
-                  <span><i class="fi-plus accordion-icon"></i></span>
+                  <span><a data-remote="true" href="#"><i class="fi-plus accordion-icon"></a></i></span>
                   <span><i class="fi-map accordion-icon"></i></span>
                 </div>
               </div>
@@ -59,6 +68,14 @@
 
 <div class="small-4 columns food-search-container-fixed">
   <% if @restaurant_data %>
+
+    <div class="small-12 columns row side-content-container">
+      <ul>
+        <li class="side-content item-1">
+          <h3><%= @food_search_string %></h3></br></br>
+        </li>
+      <ul>
+    </div>
 
     <div class="small-12 columns row side-content-container">
       <ul>

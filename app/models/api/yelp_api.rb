@@ -25,16 +25,13 @@ class YelpAPI
   end
 
   def fetch_and_store_restaurant_data
-    binding.pry
     r_data = fetch_restaurant_data
-    binding.pry
     r_data = store_restaurant_data(r_data)
 
     r_data
   end
 
   def fetch_restaurant_data
-    binding.pry
     @search_term = @search_term.gsub(/&/, '')
 
     request = "#{@search_term.split(' ').join('-')}-#{@search_location.split(' ').join('-')}"
@@ -43,7 +40,6 @@ class YelpAPI
   end
 
   def store_restaurant_data(r_data)
-    binding.pry
     r_data['street_number'] = r_data['location']['address'][0].split(' ')[0]
     r_data['longitude'] = r_data['location']['coordinate']['longitude'].to_f
     r_data['latitude'] = r_data['location']['coordinate']['latitude'].to_f
