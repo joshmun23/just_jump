@@ -3,6 +3,8 @@ class LocuAPI
     @data = nil
     @search_term = search_term
     @search_location = search_location
+    @latitude = @search_location[0]
+    @longitude = @search_location[1]
   end
 
   def locu_search
@@ -10,13 +12,14 @@ class LocuAPI
     api_key = ENV['LOCU_KEY']
     # "fields": [ "name", "menus", "delivery" ],
 
+    binding.pry
     request =
       %{{
     "api_key": "#{api_key}",
     "venue_queries": [
       {
         "location": {
-          "locality": "#{@search_location}"
+          "geo": "$in_lat_lng_radius" : [#{@latitude}, #{@longitude}, 5000]"
         }
       }
     ],
