@@ -3,8 +3,8 @@ class LocuAPI
     @data = nil
     @search_term = search_term
     @search_location = search_location
-    @latitude = @search_location[0]
-    @longitude = @search_location[1]
+    @latitude = Geocoder.coordinates(@search_location)[0]
+    @longitude = Geocoder.coordinates(@search_location)[1]
   end
 
   def locu_search
@@ -12,14 +12,15 @@ class LocuAPI
     api_key = ENV['LOCU_KEY']
     # "fields": [ "name", "menus", "delivery" ],
 
-    binding.pry
     request =
       %{{
     "api_key": "#{api_key}",
     "venue_queries": [
       {
         "location": {
-          "geo": "$in_lat_lng_radius" : [#{@latitude}, #{@longitude}, 5000]"
+          "geo": {
+           "$in_lat_lng_radius" : ["#{@latitude}", "#{@longitude}", 5000.0]
+          }
         }
       }
     ],
@@ -29,6 +30,7 @@ class LocuAPI
       }
     ]
     }}
+
 
     conn = Faraday.new(:url => 'https://api.locu.com') do |faraday|
       faraday.request :url_encoded
@@ -41,22 +43,6 @@ class LocuAPI
     a = JSON.parse(data.to_json)
     b = JSON.parse(a['body'])
 
-
-    # >>Restaurant Data
-    # name = b[0]['venues'].name
-    # phone = (Need yelp phone)
-    # is_closed = (need yelp)
-    # url = yelp
-    # mobile_url = yelp
-    # snippet_text = yelp
-    # street_number = locu||yelp
-    # latitude, longitude = locu||yelp
-    # >>
-
-    # >>Menu Item
-    # name = b[0]['venues']['menu_items'][0]['name'] (each)
-    # price = b[0]['venues']['menu_items'][0]['price'] (each)
-    # >>
     b['venues']
   end
 end
