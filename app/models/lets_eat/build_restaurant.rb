@@ -23,7 +23,6 @@ class BuildRestaurant
 
         set_restaurant_data(restaurant)
 
-        binding.pry if @restaurant.street_name_id.nil?
         results << (@restaurant.save ? @restaurant : nil)
       else
         results << current_restaurant.first

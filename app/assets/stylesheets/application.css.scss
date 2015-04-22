@@ -1,0 +1,66 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require foundation_and_overrides
+ *= require_tree .
+ *= require_self
+ */
+
+// colors
+$primary-color: #801515;
+$bg-color: #FCECDF;
+
+
+// content
+body {
+  background-color: $bg-color;
+  font-family: 'Oswald', sans-serif;
+  color: $primary-color;
+  text-align: center;
+}
+
+body::after {
+  content: "";
+  background: url('http://images7.alphacoders.com/402/402852.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+.main-heading {
+  margin-top: 2.5em;
+  padding-top: 1em;
+}
+
+.main-title {
+  margin-bottom: 1em;
+  letter-spacing: 2px;
+  box-shadow: .4em .4em .25em $primary-color;
+  text-align: center;
+}
+
+.main-body-container {
+  width: 100%;
+  height: 70vh;
+  margin-left: .1em;
+}

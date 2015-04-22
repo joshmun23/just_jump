@@ -1,0 +1,15 @@
+$primary-color: #801515;
+$bg-color: #FCECDF;
+
+.accordion-icon {
+  margin-left: 5%;
+}
+
+.accordion-icon-container a {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+.accordion-icon-container a:hover {
+  color: green;
+}

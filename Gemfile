@@ -13,6 +13,7 @@ gem 'foundation-rails', '5.5.1.0'
 gem 'turbolinks'
 gem 'geocoder'
 gem 'devise'
+gem 'kaminari'
 
 #Photo Uploading
 gem "mini_magick"
@@ -26,8 +27,10 @@ gem 'yelp', require: 'yelp'
 
 group :development, :test do
   gem 'capybara'
-  gem 'pry'
-  gem 'rspec'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'launchy'
+  gem 'factory_girl_rails'
 end
 
 gem 'rails_12factor', group: :production
