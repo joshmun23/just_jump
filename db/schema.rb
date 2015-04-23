@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419211924) do
+ActiveRecord::Schema.define(version: 20150423004537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,9 +41,18 @@ ActiveRecord::Schema.define(version: 20150419211924) do
     t.integer  "total_search_count", default: 0, null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "city"
+    t.string   "state_code"
+    t.string   "zipcode"
   end
 
   add_index "food_searches", ["search_term", "search_location"], name: "index_food_searches_on_search_term_and_search_location", unique: true, using: :btree
+
+  create_table "menu_item_feedbacks", force: :cascade do |t|
+    t.integer "rating"
+  end
 
   create_table "menu_items", force: :cascade do |t|
     t.datetime "created_at",    null: false
@@ -142,6 +151,7 @@ ActiveRecord::Schema.define(version: 20150419211924) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username",                            null: false
+    t.string   "last_search_location"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

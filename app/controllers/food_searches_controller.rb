@@ -5,32 +5,40 @@ class FoodSearchesController < ApplicationController
 
   def new
     @spot = FoodSearch.new
-    @trends = FoodSearch.where("search_location iLIKE '%boston%'").order(
+    @trends = FoodSearch.where("city iLIKE '%boston%'").order(
                                 total_search_count: :desc)
   end
 
   def create
+    if current_user
+      current_user.last_search_location = food_search_params[:search_location]
+      current_user.save
+    end
+
     @spot = FoodSearch.new(food_search_params)
 
     @spot = @spot.find_or_create_food_search
+    @spot.geocode
+    @spot.reverse_geocode
 
     if @spot.save
       @restaurant_data = FetchEats.new(
-        food_search_params[:search_term],
-        food_search_params[:search_location]
+        @spot[:search_term],
+        @spot[:search_location]
       ).fetch_all_data
 
-
       @food_search_count = FoodSearch.where(
-        food_search_params
+        search_term: @spot.search_term,
+        city: @spot.city,
+        state_code: @spot.state_code
       ).first.total_search_count
 
       @food_search_string = "Users have searched #{@food_search_count} time(s) for
-                             #{food_search_params[:search_term]} in
-                             #{food_search_params[:search_location].capitalize}"
+                             #{@spot.search_term} in
+                             #{@spot.city}, #{@spot.state_code}"
 
       @most_popular_searches = FoodSearch.where(
-        search_location: food_search_params[:search_location])
+        city: @spot.city, state_code: @spot.state_code)
       @most_popular_searches = @most_popular_searches.order(total_search_count: :desc)
 
       @spot = FoodSearch.new

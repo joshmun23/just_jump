@@ -25,16 +25,16 @@
 
             <% if current_user %>
 
-            <li class="top-bar-alert"><%= link_to "View Your Foods", user_menu_items_path(current_user) %></li>
+              <li class="top-bar-alert"><%= link_to "View Your Foods", user_menu_items_path(current_user) %></li>
 
-            <li>
-              <a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:5000"><%= current_user.email %></a></li>
+              <li>
+                <a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:5000"><%= current_user.email %></a></li>
 
-            <ul id="hover1" class="f-dropdown" data-dropdown-content>
-              <li><%= link_to 'View Profile', '' %></li>
-              <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-              <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
-            </ul>
+              <ul id="hover1" class="f-dropdown" data-dropdown-content>
+                <li><%= link_to 'View Profile', '' %></li>
+                <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+                <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+              </ul>
 
             <% else %>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>
@@ -51,15 +51,18 @@
 
             <li class="has-form">
               <div class="row collapse">
-
-                <% if params[:food_search] %>
+                <% if params[:action] != 'new' && params[:controller] = 'food_searches' %>
                   <%= form_for @spot, url: url_for(controller: 'food_searches', action: 'create') do |f| %>
 
                     <div class="large-5 small-9 columns">
                       <%= f.text_field :search_term, class: 'form-control', autofocus: true, placeholder: "What're you craving today?" %>
                     </div>
                     <div class="large-5 small-9 columns">
-                      <%= f.text_field :search_location, class: 'form-control', autofocus: true, placeholder: 'And where are you?' %>
+                      <% if current_user && current_user.last_search_location %>
+                        <%= f.text_field :search_location, class: 'form-control', value: current_user.last_search_location, placeholder: 'Street, City, State or Place, State' %>
+                      <% else %>
+                        <%= f.text_field :search_location, class: 'form-control', autofocus: true, placeholder: 'Street, City, State or Place, State' %>
+                      <% end %>
                     </div>
                     <div class="large-2 small-3 columns">
                       <%= f.submit "Feed Your Need", class: 'button small alert topbar', id: 'top-bar-submit' %>
