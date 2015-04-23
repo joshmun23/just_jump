@@ -5,11 +5,16 @@ class FoodSearchesController < ApplicationController
 
   def new
     @spot = FoodSearch.new
-    @trends = FoodSearch.where("search_location iLIKE '%boston%'").order(
+    @trends = FoodSearch.where("city iLIKE '%boston%'").order(
                                 total_search_count: :desc)
   end
 
   def create
+    if current_user
+      current_user.last_search_location = food_search_params[:search_location]
+      current_user.save
+    end
+
     @spot = FoodSearch.new(food_search_params)
 
     @spot = @spot.find_or_create_food_search
@@ -23,6 +28,7 @@ class FoodSearchesController < ApplicationController
       ).fetch_all_data
 
       @food_search_count = FoodSearch.where(
+        search_term: @spot.search_term,
         city: @spot.city,
         state_code: @spot.state_code
       ).first.total_search_count
@@ -39,7 +45,6 @@ class FoodSearchesController < ApplicationController
 
       render :index
     else
-
       flash[:notice] = @spot.errors.full_messages.join(', ')
       redirect_to new_food_search_path
     end

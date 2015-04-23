@@ -2,6 +2,7 @@ class MenuItemsController < ApplicationController
   respond_to :json, :html
 
   def index
+    @spot = FoodSearch.new
     @user_menu_items = current_user.user_menu_items.order(created_at: :desc).page params[:page]
   end
 
