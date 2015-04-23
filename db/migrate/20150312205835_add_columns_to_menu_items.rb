@@ -1,5 +1,5 @@
 class AddColumnsToMenuItems < ActiveRecord::Migration
   def change
-    add_column :menu_items, :name, :string, null: false
+    add_column :menu_items, :menu_item, :string, null: false
   end
 end
