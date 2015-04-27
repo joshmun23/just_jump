@@ -1,8 +1,0 @@
-<%= @uploader %>
-  def upload_photo
-    @uploader = AvatarUploader.new
-
-    @uploader.store!('http://animalia-life.com/dogs.html')
-
-    @uploader.retrieve_from_store!('http://animalia-life.com/dogs.html')
-  end
