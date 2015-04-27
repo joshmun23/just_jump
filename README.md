@@ -1,4 +1,4 @@
-<h3><a href="www.justjump.herokuapp.com"</a><h3>
+<h3><a href="www.justjump.herokuapp.com">Just Jump!</a><h3>
 
 Just Jump allows users to find their favorite foods at the right price point for them. The app is still a work in progress but currently has basic user functionality.
 
