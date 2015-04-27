@@ -1,3 +1,5 @@
+<h3><a href="www.justjump.herokuapp.com"</a><h3>
+
 Just Jump allows users to find their favorite foods at the right price point for them. The app is still a work in progress but currently has basic user functionality.
 
 The application also has basic user-search statistics that will be a fragment of a larger algorithm tracking search data and providing suggestions to benefit the user.
