@@ -11,9 +11,8 @@ class LocuAPI
     #https://dev.locu.com/documentation/
     api_key = ENV['LOCU_KEY']
     # "fields": [ "name", "menus", "delivery" ],
-
     request =
-      %{{
+    %{{
     "api_key": "#{api_key}",
     "venue_queries": [
       {
@@ -30,7 +29,6 @@ class LocuAPI
       }
     ]
     }}
-
 
     conn = Faraday.new(:url => 'https://api.locu.com') do |faraday|
       faraday.request :url_encoded

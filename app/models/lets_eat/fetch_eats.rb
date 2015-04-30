@@ -42,6 +42,6 @@ class FetchEats
 
       { menu_item: data[0], restaurant: data[1], address: address }
     end
-    result.uniq!
+    # result.uniq!
   end
 end

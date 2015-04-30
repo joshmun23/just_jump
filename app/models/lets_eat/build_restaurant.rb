@@ -12,24 +12,26 @@ class BuildRestaurant
 
   def save_restaurants
     results = []
-    @data.each do |restaurant|
-      current_restaurant = Restaurant.where(name: restaurant['name'],
-                            locality: set_locality(restaurant))
+    if @data
+      @data.each do |restaurant|
+        current_restaurant = Restaurant.where(name: restaurant['name'],
+                              locality: set_locality(restaurant))
 
-      if current_restaurant.empty?
-        @restaurant.name = restaurant['name']
+        if current_restaurant.empty?
+          @restaurant.name = restaurant['name']
 
-        @restaurant.locality = set_locality(restaurant)
+          @restaurant.locality = set_locality(restaurant)
 
-        set_restaurant_data(restaurant)
+          set_restaurant_data(restaurant)
 
-        results << (@restaurant.save ? @restaurant : nil)
-      else
-        results << current_restaurant.first
-        next
+          results << (@restaurant.save ? @restaurant : nil)
+        else
+          results << current_restaurant.first
+          next
+        end
+
+        @restaurant = Restaurant.new
       end
-
-      @restaurant = Restaurant.new
     end
     results
   end
