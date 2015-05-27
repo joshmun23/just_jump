@@ -17,6 +17,12 @@
   <div class="small-4 columns food-search-container-relative">
     <ul class="accordion" data-accordion>
       <% @menu_items.each_with_index do |item, index| %>
+        <% restaurant = item.restaurant %>
+        <% street_address = "#{restaurant.street_number} #{restaurant.street_name.street_name}" %>
+        <% city = restaurant.postal_code.city.city %>
+        <% state_code = restaurant.postal_code.city.state_code.state_code %>
+        <% postal_code = restaurant.postal_code.postal_code %>
+        <% full_address = "#{street_address} #{city}, #{state_code} #{postal_code}" %>
 
         <% if index == 0 %>
           <li class="accordion-navigation">
@@ -24,7 +30,7 @@
                                               | #{item.price}" %></a>
 
             <div id="panel<%= index %>a" class="content active">
-              <span class="restaurant_address"><%= item.restaurant.street_number %></span>
+              <span class="restaurant_address"><%= full_address %></span>
 
               <% if current_user %>
                 <span hidden class="item-info"><%= "#{current_user.id}, #{item.restaurant.name.gsub(':', '')}, #{item.id}" %></span>
@@ -43,7 +49,7 @@
             <a href="#panel<%= index %>a"><%= "#{item.restaurant.name}: #{item.menu_item}
                                               | #{item.price}" %></a>
             <div id="panel<%= index %>a" class="content">
-              <span class="restaurant_address"><%= item.restaurant.street_number %></span>
+              <span class="restaurant_address"><%= full_address %></span>
 
               <% if current_user %>
                 <span hidden class="item-info"><%= "#{current_user.id}, #{item.restaurant.name.gsub(':', '')}, #{item.id}" %></span>
