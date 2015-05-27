@@ -38,10 +38,5 @@ class LocuAPI
     end
 
     data = conn.post '/v2/venue/search', request
-
-    a = JSON.parse(data.to_json)
-    b = JSON.parse(a['body'])
-
-    b['venues']
   end
 end

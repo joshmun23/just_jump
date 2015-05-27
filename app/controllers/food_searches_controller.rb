@@ -22,7 +22,7 @@ class FoodSearchesController < ApplicationController
     @spot.reverse_geocode
 
     if @spot.save
-      @restaurant_data = FetchEats.new(
+      @menu_items = FetchEats.new(
         @spot[:search_term],
         @spot[:search_location]
       ).fetch_all_data
