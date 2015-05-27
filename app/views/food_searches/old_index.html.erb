@@ -1,0 +1,101 @@
+<div class="small-4 columns food-search-container-fixed">
+  <% if @restaurant_data %>
+
+    <div class="small-12 columns row side-content-container">
+      <ul>
+        <iframe
+          class="google-maps"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/directions?key=<%= ENV['GOOGLE_MAPS_KEY'] %>
+          &origin=33+Harrison Ave+Chinatown+MA
+          &destination=60+Northern Ave.+Boston+MA+02113
+          &avoid=tolls|highways">
+        </iframe>
+      <ul>
+    </div>
+  <% end %>
+</div>
+
+<div class="small-4 columns food-search-container-relative">
+  <% if @restaurant_data %>
+      <ul class="accordion" data-accordion>
+        <% @restaurant_data.each_with_index do |restaurant, index| %>
+
+          <% if index == 0 %>
+            <li class="accordion-navigation">
+              <a href="#panel<%= index %>a"><%= "#{restaurant[:restaurant].name}: #{restaurant[:menu_item].menu_item}
+                                                | #{restaurant[:menu_item].price}" %></a>
+
+              <div id="panel<%= index %>a" class="content active">
+                <span class="restaurant_address"><%= restaurant[:address] %></span>
+
+                <% if current_user %>
+                  <span hidden class="item-info"><%= "#{current_user.id}, #{restaurant[:restaurant].name.gsub(':', '')}, #{restaurant[:menu_item].id}" %></span>
+                <% end %>
+
+                <div class="accordion-icon-container">
+                  <span><a data-remote="true" href="#"><i </a></i></span>
+                  <span><a data-remote="true" href="#"><i class="fi-plus accordion-icon"></a></i></span>
+                </div>
+              </div>
+            </li>
+
+          <% else %>
+
+            <li class="accordion-navigation">
+              <a href="#panel<%= index %>a"><%= "#{restaurant[:restaurant].name}: #{restaurant[:menu_item].menu_item}
+                                                | #{restaurant[:menu_item].price}" %></a>
+              <div id="panel<%= index %>a" class="content">
+                <span class="restaurant_address"><%= restaurant[:address] %></span>
+
+                <% if current_user %>
+                  <span hidden class="item-info"><%= "#{current_user.id}, #{restaurant[:restaurant].name.gsub(':', '')}, #{restaurant[:menu_item].id}" %></span>
+                <% end %>
+
+                <div class="accordion-icon-container">
+                  <span><a data-remote="true" href="#"><i class="fi-plus accordion-icon"></a></i></span>
+                </div>
+              </div>
+            </li>
+
+          <% end %>
+        <% end %>
+      </ul>
+  <% end %>
+</div>
+
+<div class="small-4 columns food-search-container-fixed">
+  <% if @restaurant_data %>
+
+    <div class="small-12 columns row side-content-container">
+      <ul>
+        <li class="side-content item-1">
+          <h3><%= @food_search_string %></h3></br></br>
+        </li>
+      <ul>
+    </div>
+    <div class="small-12 columns row side-content-container">
+      <ul>
+        <em><h3>Other Popular Searches in the area include:</h3></em></li>
+        <li class="side-content item-2">
+          <ul>
+            <% @most_popular_searches.each do |search| %>
+              <li class="popular-searches"><h4><%= "#{search.search_term}: #{search.total_search_count}" %></h4></li>
+            <% end %>
+          </ul>
+        </li>
+      <ul>
+    <div class="small-12 columns row side-content-container">
+      <ul>
+        <li class="side-content item-3">
+        </li>
+      <ul>
+    </div>
+    </div>
+
+    <div class="small-12 columns row side-content-container">
+
+    </div>
+
+  <% end %>
+</div>
