@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :spots, only: [:index, :create, :new]
 
-  resources :food_searches
+  resources :food_searches, only: [:index, :create, :new]
 
   resources :users do
     resources :menu_items, only: [:index, :new, :create, :destroy]

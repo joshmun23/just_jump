@@ -4,9 +4,6 @@ class SpotsController < ApplicationController
   end
 
   def new
-    #curl commands? within ruby code
-    # cmd = "as;dfkjsadl;kfa"
-    # `#{}cmd`
   end
 
   def create
@@ -17,7 +14,6 @@ class SpotsController < ApplicationController
   private
 
   def spot_params
-    # params.require(:spot).permit(:will_eat)
   end
 
   def find_spot
