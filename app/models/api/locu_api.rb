@@ -38,7 +38,6 @@ class LocuAPI
     end
 
     data = conn.post '/v2/venue/search', request
-    binding.pry
 
     a = JSON.parse(data.to_json)
     b = JSON.parse(a['body'])
