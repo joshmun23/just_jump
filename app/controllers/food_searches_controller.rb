@@ -50,7 +50,6 @@ class FoodSearchesController < ApplicationController
     end
   end
 
-
   private
 
   def food_search_params
