@@ -22,6 +22,13 @@ class FetchEats
     data = LocuAPI.new(@search_term, @search_location).locu_search
   end
 
+  def parse_api_data
+    a = JSON.parse(data.to_json)
+    b = JSON.parse(a['body'])
+
+    b['venues']
+  end
+
   # def fetch_restaurants
   #   YelpAPI.new(@search_term, @search_location)
   # end
@@ -50,10 +57,4 @@ class FetchEats
     # result.uniq!
   end
 
-  def parse_api_data
-    a = JSON.parse(data.to_json)
-    b = JSON.parse(a['body'])
-
-    b['venues']
-  end
 end

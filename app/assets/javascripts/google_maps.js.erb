@@ -1,0 +1,13 @@
+$(".accordion-navigation").on("click", "a", function() {
+  key = <%= ENV['GOOGLE_MAPS_KEY'] %>;
+  $("#google-maps-container").append(
+    "<iframe class='google-maps'
+    frameborder='0' style='border:0'
+    src='https://www.google.com/maps/embed/v1/directions?key=" + key +
+    "&origin=33+Harrison Ave+Chinatown+MA
+    &destination=60+Northern Ave.+Boston+MA+02113
+    &avoid=tolls|highways'></iframe>"
+  );
+  debugger;
+});
+
