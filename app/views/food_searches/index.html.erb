@@ -26,8 +26,7 @@
 
         <% if index == 0 %>
           <li class="accordion-navigation">
-            <a href="#panel<%= index %>a"><%= "#{item.restaurant.name}: #{item.menu_item}
-                                              | #{item.price}" %></a>
+            <a href="#panel<%= index %>a"><%= "#{item.restaurant.name}: #{item.menu_item} | #{item.price}" %></a>
 
             <div id="panel<%= index %>a" class="content active">
               <span class="restaurant_address"><%= full_address %></span>
@@ -46,8 +45,7 @@
         <% else %>
 
           <li class="accordion-navigation">
-            <a href="#panel<%= index %>a"><%= "#{item.restaurant.name}: #{item.menu_item}
-                                              | #{item.price}" %></a>
+            <a href="#panel<%= index %>a"><%= "#{item.restaurant.name}: #{item.menu_item} | #{item.price}" %></a>
             <div id="panel<%= index %>a" class="content">
               <span class="restaurant_address"><%= full_address %></span>
 
