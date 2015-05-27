@@ -1,6 +1,5 @@
-<div class="small-4 columns food-search-container-fixed">
-  <% if @restaurant_data %>
-
+<% if @menu_items %>
+  <div class="small-4 columns food-search-container-fixed">
     <div class="small-12 columns row side-content-container">
       <ul>
         <iframe
@@ -13,60 +12,61 @@
         </iframe>
       <ul>
     </div>
-  <% end %>
-</div>
+  </div>
 
-<div class="small-4 columns food-search-container-relative">
-  <% if @restaurant_data %>
-      <ul class="accordion" data-accordion>
-        <% @restaurant_data.each_with_index do |restaurant, index| %>
+  <div class="small-4 columns food-search-container-relative">
+    <ul class="accordion" data-accordion>
+      <% @menu_items.each_with_index do |item, index| %>
+        <% restaurant = item.restaurant %>
+        <% street_address = "#{restaurant.street_number} #{restaurant.street_name.street_name}" %>
+        <% city = restaurant.postal_code.city.city %>
+        <% state_code = restaurant.postal_code.city.state_code.state_code %>
+        <% postal_code = restaurant.postal_code.postal_code %>
+        <% full_address = "#{street_address} #{city}, #{state_code} #{postal_code}" %>
 
-          <% if index == 0 %>
-            <li class="accordion-navigation">
-              <a href="#panel<%= index %>a"><%= "#{restaurant[:restaurant].name}: #{restaurant[:menu_item].menu_item}
-                                                | #{restaurant[:menu_item].price}" %></a>
+        <% if index == 0 %>
+          <li class="accordion-navigation">
+            <a href="#panel<%= index %>a"><%= "#{item.restaurant.name}: #{item.menu_item}
+                                              | #{item.price}" %></a>
 
-              <div id="panel<%= index %>a" class="content active">
-                <span class="restaurant_address"><%= restaurant[:address] %></span>
+            <div id="panel<%= index %>a" class="content active">
+              <span class="restaurant_address"><%= full_address %></span>
 
-                <% if current_user %>
-                  <span hidden class="item-info"><%= "#{current_user.id}, #{restaurant[:restaurant].name.gsub(':', '')}, #{restaurant[:menu_item].id}" %></span>
-                <% end %>
+              <% if current_user %>
+                <span hidden class="item-info"><%= "#{current_user.id}, #{item.restaurant.name.gsub(':', '')}, #{item.id}" %></span>
+              <% end %>
 
-                <div class="accordion-icon-container">
-                  <span><a data-remote="true" href="#"><i </a></i></span>
-                  <span><a data-remote="true" href="#"><i class="fi-plus accordion-icon"></a></i></span>
-                </div>
+              <div class="accordion-icon-container">
+                <span><a data-remote="true" href="#"><i </a></i></span>
+                <span><a data-remote="true" href="#"><i class="fi-plus accordion-icon"></a></i></span>
               </div>
-            </li>
+            </div>
+          </li>
 
-          <% else %>
+        <% else %>
 
-            <li class="accordion-navigation">
-              <a href="#panel<%= index %>a"><%= "#{restaurant[:restaurant].name}: #{restaurant[:menu_item].menu_item}
-                                                | #{restaurant[:menu_item].price}" %></a>
-              <div id="panel<%= index %>a" class="content">
-                <span class="restaurant_address"><%= restaurant[:address] %></span>
+          <li class="accordion-navigation">
+            <a href="#panel<%= index %>a"><%= "#{item.restaurant.name}: #{item.menu_item}
+                                              | #{item.price}" %></a>
+            <div id="panel<%= index %>a" class="content">
+              <span class="restaurant_address"><%= full_address %></span>
 
-                <% if current_user %>
-                  <span hidden class="item-info"><%= "#{current_user.id}, #{restaurant[:restaurant].name.gsub(':', '')}, #{restaurant[:menu_item].id}" %></span>
-                <% end %>
+              <% if current_user %>
+                <span hidden class="item-info"><%= "#{current_user.id}, #{item.restaurant.name.gsub(':', '')}, #{item.id}" %></span>
+              <% end %>
 
-                <div class="accordion-icon-container">
-                  <span><a data-remote="true" href="#"><i class="fi-plus accordion-icon"></a></i></span>
-                </div>
+              <div class="accordion-icon-container">
+                <span><a data-remote="true" href="#"><i class="fi-plus accordion-icon"></a></i></span>
               </div>
-            </li>
+            </div>
+          </li>
 
-          <% end %>
         <% end %>
-      </ul>
-  <% end %>
-</div>
+      <% end %>
+    </ul>
+  </div>
 
-<div class="small-4 columns food-search-container-fixed">
-  <% if @restaurant_data %>
-
+  <div class="small-4 columns food-search-container-fixed">
     <div class="small-12 columns row side-content-container">
       <ul>
         <li class="side-content item-1">
@@ -74,6 +74,7 @@
         </li>
       <ul>
     </div>
+
     <div class="small-12 columns row side-content-container">
       <ul>
         <em><h3>Other Popular Searches in the area include:</h3></em></li>
@@ -85,17 +86,15 @@
           </ul>
         </li>
       <ul>
+    </div>
     <div class="small-12 columns row side-content-container">
       <ul>
         <li class="side-content item-3">
         </li>
       <ul>
     </div>
-    </div>
 
     <div class="small-12 columns row side-content-container">
-
     </div>
-
-  <% end %>
-</div>
+  </div>
+<% end %>

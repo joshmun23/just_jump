@@ -7,10 +7,15 @@ class FetchEats
   def fetch_all_data
     data = fetch_restaurant_data
 
-    restaurant_data = parse_restaurant_data(data)
-    menu_item_data = parse_menu_item_data(data, restaurant_data)
+    if data.status == 200
+      data = parse_api_data
+      restaurant_data = parse_restaurant_data(data)
+      menu_item_data = parse_menu_item_data(data, restaurant_data)
 
-    format_menu_items_restaurants(menu_item_data)
+      format_menu_items_restaurants(menu_item_data)
+    elsif data.status == 400
+      MenuItem.where("menu_item iLIKE '%#{@search_term}%'")
+    end
   end
 
   def fetch_restaurant_data
@@ -43,5 +48,12 @@ class FetchEats
       { menu_item: data[0], restaurant: data[1], address: address }
     end
     # result.uniq!
+  end
+
+  def parse_api_data
+    a = JSON.parse(data.to_json)
+    b = JSON.parse(a['body'])
+
+    b['venues']
   end
 end
